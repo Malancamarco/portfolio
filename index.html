@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malanca Marco - Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Carica tutte le icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --customBlue: #020617;
+            /* Custom Blue */
+            --teal-400: #38b2ac;
+            /* Teal 400 */
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.70;
+            }
+        }
+
+
+        .neon-bar {
+            box-shadow:
+                0 5px 15px rgba(0, 255, 255, 0.8),
+                /* Ombra più vicina */
+                0 10px 30px rgba(0, 255, 255, 0.7),
+                /* Ombra un po' più lontana */
+                0 15px 45px rgba(0, 255, 255, 0.6),
+                /* Ombra ancora più lontana */
+                0 20px 60px rgba(0, 255, 255, 0.5),
+                /* Ombra ancora più distante */
+                0 25px 75px rgba(0, 255, 255, 0.4),
+                /* Ombra lontana e leggera */
+                0 30px 90px rgba(0, 255, 255, 0.3);
+            /* Ombra massima, molto lontana e leggera */
+            animation: flicker 1.5s infinite alternate;
+        }
+
+
+
+
+        .typed-text {
+            font-family: inherit;
+            color: white;
+        }
+
+        .cursor {
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #particles {
+            position: fixed;
+            /* Fissa il contenitore rispetto alla finestra del browser */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            /* Larghezza dell'intera finestra del browser */
+            height: 100vh;
+            /* Altezza dell'intera finestra del browser */
+            z-index: -1;
+            /* Mettile dietro il contenuto della pagina */
+            pointer-events: none;
+            /* Le particelle non devono interferire con gli eventi del mouse */
+            overflow: hidden;
+            /* Nasconde le particelle che escono dal contenitore */
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.599);
+            /* Colore e opacità delle particelle */
+            pointer-events: none;
+            /* Le particelle non devono interferire con gli eventi del mouse */
+        }
+
+        
+        .carousel {
+        overflow: hidden;
+    }
+
+    .carousel-inner {
+        display: flex;
+        flex-wrap: nowrap;
+        animation: scroll 30s linear infinite;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .carousel-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+
+
+    </style>
+</head>
+
+<body class="relative bg-customBlue text-justify">
+
+    <!-- Particles Container -->
+    <div id="particles"></div>
+
+   <!-- Header Section -->
+<header class="relative overflow-hidden flex flex-col justify-center items-center pt-32 pb-10 md:py-44 lg:py-56 text-center">
+    <!-- Icone in alto a sinistra e destra -->
+    <a href="https://www.linkedin.com/in/marcomalanca"
+        class="absolute top-5 left-5 text-2xl header-icon text-gray-500 hover:text-gray-50 text-shadow-lg transition duration-300"
+        target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+    <a href="mailto:malancamarco3@gmail.com"
+        class="absolute top-5 right-5 text-2xl header-icon text-gray-500 hover:text-gray-50 text-shadow-lg transition duration-300">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
+
+    <!-- Contenuto -->
+    <div class="relative z-10 px-4">
+        <!-- Contenitore del testo con barra neon -->
+        <div class="inline-block relative pt-10">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-gray-50 tracking-wide text-shadow-lg leading-tight">
+                Hi there, I'm Marco! <span>👋</span>
+            </h1>
+            <!-- Barra LED effetto neon -->
+            <div class="left-0 w-full h-1 bg-teal-300 rounded-lg neon-bar mt-5"></div>
+
+            <!-- Testo con effetto macchina da scrivere -->
+            <h1 class="py-6 text-xl sm:text-3xl md:text-3xl font-extralight tracking-wide text-shadow-lg leading-tight">
+                <span class="typed-text"></span><span class="cursor">|</span>
+            </h1>
+        </div>
+    </div>
+
+    <!-- Icona freccia giù -->
+    <a href="#about-me"
+        class="text-gray-500 text-2xl sm:text-3xl mt-20 animate-bounce hover:text-gray-50 text-shadow-lg transition duration-300">
+        <i class="fa-solid fa-angle-down"></i>
+    </a>
+</header>
+
+
+
+    <div id="about-me" class="p-1"></div>
+
+    <!-- Main Content Section -->
+<main class="leading-relaxed pt-12 lg:pt-1 pb-16 lg:pb-20">
+    <!-- About Me Section -->
+    <div class="backdrop-blur-sm bg-white/10 max-w-4xl mx-auto p-10 rounded-lg">
+        <section class="pb-16">
+            <div>
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-bold text-teal-400 mb-4">ABOUT ME</h2>
+                <p class="text-base md:text-lg lg:text-xl text-gray-50">
+                    My name is Marco Malanca. I’m 21 years old and a passionate graphic designer and full stack developer
+                    with a deep interest in the intersection of design and technology. I’m Italian and currently reside in Milan.
+                   
+                <p class="text-base md:text-lg lg:text-xl text-white mt-4">
+                    My experience spans both creative and technical fields, enabling me to create engaging and
+                    functional experiences.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="pb-16">
+            <div>
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-bold text-teal-400 mb-4">EDUCATION</h2>
+                <ul class="list-none text-base md:text-lg lg:text-xl text-gray-50">
+                    <li class="flex items-start">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Specialization Course in Digital Marketing & Graphic Design
+                            </p>
+                            <p class="text-gray-500 pb-3">
+                                eCampus University, 2023 - 2024
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mt-2">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Coding Boot Camp in Web Development
+                            </p>
+                            <p class="text-gray-500 pb-3">
+                                Aulab S.r.l 2022 - 2022
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mt-2">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                High School Diploma in Economics and Social Studies
+                            </p>
+                            <p class="text-gray-500">
+                                Liceo Clemente Rebora 2017 - 2022
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section class="pb-16">
+            <div>
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-bold text-teal-400 mb-4">WORK EXPERIENCE</h2>
+                <ul class="list-none text-base md:text-lg lg:text-xl text-gray-50">
+                    <li class="flex items-start">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Intern at Wrdigital Marketing Agency
+                            </p>
+                            <p class="text-gray-500 pb-3">
+                                April 2024 - June 2024
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mt-2">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Front-End Web Developer at Sevenia S.r.l
+                            </p>
+                            <p class="text-gray-500">
+                                March 2023 - September 2023
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certification Section -->
+        <section>
+            <div>
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-bold text-teal-400 mb-4">WORK & STUDY CERTIFICATIONS</h2>
+                <ul class="list-none text-base md:text-lg lg:text-xl text-gray-50">
+                    <li class="flex items-start">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Full Stack Developer
+                            </p>
+                            <p class="text-gray-500 pb-3">
+                                Aulab S.r.l
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mt-2">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Graphic Designer
+                            </p>
+                            <p class="text-gray-500 pb-3">
+                                eCampus University
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mt-2">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Elements of AI (Artificial intelligence)
+                            </p>
+                            <p class="text-gray-500 pb-3">
+                                Helsinky University
+                            </p>
+                        </div>
+                    </li>
+                    <li class="flex items-start mt-2">
+                        <span class="inline-block w-2 h-2 bg-gray-50 rounded-full mr-3 mt-2"></span>
+                        <div class="flex-1">
+                            <p class="text-base md:text-lg lg:text-xl">
+                                Google Digital Marketing
+                            </p>
+                            <p class="text-gray-500">
+                                Google Digital Learning
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+
+<!-- Projects Section -->
+<div class="backdrop-blur-sm bg-white/10 max-w-4xl mx-auto p-10 rounded-lg mb-16 lg:mb-20">
+    <div class="leading-relaxed">
+        <section id="projects" class="">
+            <div class="">
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-bold text-teal-400 pb-6">SOME PROJECTS AS A GRAPHIC DESIGNER</h2>
+                <!-- Grid Container -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-50 text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 id="view-app-design" class="text-xl font-bold mb-2 cursor-pointer flex items-center">
+                                App Design <i class="fa-solid fa-up-right-from-square pl-3"></i>
+                            </h3>
+                            <p class="text-gray-600">Designed with Figma, this project modernizes Blockbuster’s brand with an engaging, 
+                                user-friendly interface that enhances navigation and content exploration. The sleek design reflects the 
+                                brand’s heritage while improving accessibility and user experience.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-gray-50 text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 id="view-brochure" class="text-xl font-bold mb-2 cursor-pointer flex items-center">
+                                Brochure Design<i class="fa-solid fa-up-right-from-square pl-3"></i>
+                            </h3>
+                            <p class="text-gray-600">Designed a promotional flyer for the "IdentItalia: Italian Brands" exhibit with a clean,
+                                 engaging design. The flyer uses striking imagery and text to highlight Italian brands’ excellence and invite 
+                                 exploration of Italy’s cultural and creative heritage.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-gray-50 text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 id="view-book-cover" class="text-xl font-bold mb-2 cursor-pointer flex items-center">
+                                Book Cover Design<i class="fa-solid fa-up-right-from-square pl-3"></i>
+                            </h3>
+                            <p class="text-gray-600">Designed a modern, minimalist book cover inspired by the John Wick series, 
+                                featuring vibrant colors and iconic elements. The cover enhances visual appeal, 
+                                captures the essence of the character, and reflects the story’s intensity.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 4 -->
+                    <div class="bg-gray-50 text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-6">
+                            <h3 id="view-poster" class="text-xl font-bold mb-2 cursor-pointer flex items-center">
+                                Poster Design<i class="fa-solid fa-up-right-from-square pl-3"></i>
+                            </h3>
+                            <p class="text-gray-600">Created a poster featuring the athlete Conor McGregor using Adobe Photoshop. 
+                                The design highlights his dynamic presence with powerful imagery and carefully chosen elements, 
+                                resulting in a striking visual impact that resonates with strength and determination.</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+</div>
+
+
+<section class="backdrop-blur-sm bg-white/10 uppercase py-6">
+    <h2 class="max-w-4xl mx-auto text-xl md:text-2xl lg:text-2xl font-bold text-teal-400 lg:p-0 text-center py-4">Software, Coding Languages & Frameworks I've used</h2>    
+    <div class="logos group relative overflow-hidden whitespace-nowrap py-10 [mask-image:_linear-gradient(to_right,_transparent_0,_white_128px,white_calc(100%-128px),_transparent_100%)]">
+      <div class="animate-slide-left-infinite group-hover:animation-pause inline-block w-max">
+        <!-- Ensure that the images cover entire screen width for a smooth transition -->
+        <img class="mx-4 inline h-16" src="./img/icon/photoshop.png" alt="Photoshop" />
+        <img class="mx-4 inline h-16" src="./img/icon/illustrator.png" alt="Illustrator" />
+        <img class="mx-4 inline h-16" src="./img/icon/indesign.png" alt="InDesign" />
+        <img class="mx-4 inline h-16" src="./img/icon/premiere.png" alt="Premiere" />
+        <img class="mx-4 inline h-16" src="./img/icon/figma.png" alt="Figma" />
+        <img class="mx-4 inline h-16" src="./img/icon/canva.png" alt="Canva" />
+        <img class="mx-4 inline h-16" src="./img/icon/html.png" alt="HTML" />
+        <img class="mx-4 inline h-16" src="./img/icon/css.png" alt="CSS" />
+        <img class="mx-4 inline h-16" src="./img/icon/javascript.png" alt="JavaScript" />
+        <img class="mx-4 inline h-14" src="./img/icon/php.png" alt="PHP" />
+        <img class="mx-4 inline h-20" src="./img/icon/Golang.png" alt="GoLang" />
+        <img class="mx-4 inline h-14" src="./img/icon/vue.js.png" alt="Vue.js" />
+        <img class="mx-4 inline h-16" src="./img/icon/bootstrap.png" alt="Bootstrap" />
+        <img class="mx-4 inline h-16" src="./img/icon/tailwind.png" alt="tailwind CSS" />
+        <img class="mx-4 inline h-14" src="./img/icon/laravel.png" alt="Laravel" />
+        <img class="mx-4 inline h-14" src="./img/icon/wordpress.png" alt="Wordpress" />
+        <img class="mx-4 inline h-14" src="./img/icon/strapi.png" alt="Strapi" />
+        <img class="mx-4 inline h-14" src="./img/icon/hugo.png" alt="Hugo" />
+      </div>
+  
+      <!-- Duplicate of the above for infinite effect (you can use javascript to duplicate this too) -->
+      <div class="animate-slide-left-infinite inline-block w-max">
+        <!-- Ensure that the images cover entire screen width for a smooth transition -->
+        <img class="mx-4 inline h-16" src="./img/icon/photoshop.png" alt="Photoshop" />
+        <img class="mx-4 inline h-16" src="./img/icon/illustrator.png" alt="Illustrator" />
+        <img class="mx-4 inline h-16" src="./img/icon/indesign.png" alt="InDesign" />
+        <img class="mx-4 inline h-16" src="./img/icon/premiere.png" alt="Premiere" />
+        <img class="mx-4 inline h-16" src="./img/icon/figma.png" alt="Figma" />
+        <img class="mx-4 inline h-16" src="./img/icon/canva.png" alt="Canva" />
+        <img class="mx-4 inline h-16" src="./img/icon/html.png" alt="HTML" />
+        <img class="mx-4 inline h-16" src="./img/icon/css.png" alt="CSS" />
+        <img class="mx-4 inline h-16" src="./img/icon/javascript.png" alt="JavaScript" />
+        <img class="mx-4 inline h-14" src="./img/icon/php.png" alt="PHP" />
+        <img class="mx-4 inline h-20" src="./img/icon/Golang.png" alt="GoLang" />
+        <img class="mx-4 inline h-14" src="./img/icon/vue.js.png" alt="Vue.js" />
+        <img class="mx-4 inline h-16" src="./img/icon/bootstrap.png" alt="Bootstrap" />
+        <img class="mx-4 inline h-16" src="./img/icon/tailwind.png" alt="tailwind CSS" />
+        <img class="mx-4 inline h-14" src="./img/icon/laravel.png" alt="Laravel" />
+        <img class="mx-4 inline h-14" src="./img/icon/wordpress.png" alt="Wordpress" />
+        <img class="mx-4 inline h-14" src="./img/icon/strapi.png" alt="Strapi" />
+        <img class="mx-4 inline h-14" src="./img/icon/hugo.png" alt="Hugo" />
+      </div>
+    </div>
+  </section>
+
+    <footer class="bg-gray-800 text-white text-justify leading-relaxed py-12 shadow-2xl">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-gray-400 mb-2 text-md tracking-wide">malancamarco3@gmail.com</p>
+            <div class="flex items-center mb-2">
+                <p class="text-md">© 2024 Marco Malanca</p>
+                <a href="https://www.linkedin.com/in/marcomalanca/" target="_blank" class="text-gray-50 ml-5 text-xl header-icon text-shadow-lg">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <p class="text-sm text-left pt-6 tracking-wide">* Autorizzo il trattamento dei miei dati personali ai sensi del Dlgs.
+                196/2003 e dell'articolo 13 GDPR 679/16.</p>
+        </div>
+    </footer>
+
+    <!-- Include il file JavaScript -->
+    <script src="app.js"></script>
+</body>
+
+</html>
