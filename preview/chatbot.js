@@ -17,7 +17,7 @@
       <div class="mm-chat-chips" aria-label="Domande suggerite"></div>
       <form class="mm-chat-form">
         <input class="mm-chat-input" type="text" maxlength="250" aria-label="Scrivi una domanda" autocomplete="off" placeholder="Chiedimi qualcosa sul mio profilo…" required>
-        <button class="mm-chat-send" type="submit" aria-label="Invia domanda">↗</button>
+        <button class="mm-chat-send" type="submit" aria-label="Invia messaggio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></button>
       </form>
       <p class="mm-chat-disclaimer">Risposte preimpostate, basate sul portfolio. Nessuna AI esterna o invio di dati.</p>
     </section>
