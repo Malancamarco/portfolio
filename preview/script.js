@@ -10,13 +10,11 @@ document.addEventListener('click',e=>{if(mobileNav?.classList.contains('open')&&
 window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu()},{passive:true});
 let ticking=false;
 window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const total=document.documentElement.scrollHeight-innerHeight;const progress=$('#progress');if(progress)progress.style.width=scrollY/Math.max(total,1)*100+'%';ticking=false})}},{passive:true});
-const video=$('.hero-video'),motionBtn=$('#motionBtn');
+const video=$('.hero-video');
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const saveData=navigator.connection?.saveData===true;
-let userPaused=reducedMotion.matches||saveData;
 let heroVisible=true;
-function updateVideo(){if(!video)return;if(userPaused||!heroVisible||document.hidden){video.pause()}else{video.play().catch(()=>{})}if(motionBtn){motionBtn.textContent=userPaused?'RIPRENDI VIDEO ▶':'PAUSA VIDEO ❚❚';motionBtn.setAttribute('aria-pressed',String(userPaused));motionBtn.setAttribute('aria-label',userPaused?'Riprendi il video di sfondo':'Metti in pausa il video di sfondo')}}
-motionBtn?.addEventListener('click',()=>{userPaused=!userPaused;updateVideo()});
+function updateVideo(){if(!video)return;if(reducedMotion.matches||saveData||!heroVisible||document.hidden){video.pause()}else{video.play().catch(()=>{})}}
 if('IntersectionObserver'in window&&video){new IntersectionObserver(entries=>{heroVisible=entries[0]?.isIntersecting??true;updateVideo()},{threshold:0.05}).observe(video)}
 document.addEventListener('visibilitychange',updateVideo);
 updateVideo();
