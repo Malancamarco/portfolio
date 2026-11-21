@@ -85,3 +85,5 @@ def make(name,kind):
  os.replace(tmp,p)
 for name,i in [('01-infrastructure',0),('02-intelligence',1),('03-systems',2)]:
  make(name,i)
+
+# Media build trigger
