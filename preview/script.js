@@ -5,7 +5,6 @@ const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const menuBtn=$('#menuBtn');
 const mobileNav=$('#mobileNav');
 const mobileBreakpoint=window.matchMedia('(max-width: 980px)');
-let previousFocus=null;
 function setMenu(open,{restoreFocus=false}={}){
   if(!menuBtn||!mobileNav)return;
   const shouldOpen=!!open&&mobileBreakpoint.matches;
@@ -13,10 +12,7 @@ function setMenu(open,{restoreFocus=false}={}){
   menuBtn.setAttribute('aria-expanded',String(shouldOpen));
   menuBtn.setAttribute('aria-label',shouldOpen?'Chiudi menu':'Apri menu');
   document.body.classList.toggle('menu-open',shouldOpen);
-  if(shouldOpen){
-    previousFocus=document.activeElement;
-    mobileNav.querySelector('a')?.focus({preventScroll:true});
-  }else if(restoreFocus){
+  if(!shouldOpen&&restoreFocus){
     menuBtn.focus({preventScroll:true});
   }
 }
