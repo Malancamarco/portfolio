@@ -101,3 +101,18 @@ html{scroll-padding-top:24px}body{overflow-x:hidden}img,video{max-width:100%}a,b
 
 /* Bold full-name wordmark */
 .logo-wordmark .wordmark-name,.logo-wordmark .wordmark-last{font-weight:800;letter-spacing:-.055em}
+
+/* Detailed tool stack — clean, readable and responsive */
+.simple-tools.tools-expanded{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.simple-tools.tools-expanded .tool-card{display:flex;flex-direction:column;gap:0;min-width:0;min-height:0;padding:32px 34px 35px;border:1px solid #e0e0dc;border-radius:18px;background:#fff}
+.tool-card-index{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;color:#b92f3c}
+.simple-tools.tools-expanded .tool-card h3{font:800 clamp(23px,2.2vw,31px)/1.19 'Manrope',sans-serif;letter-spacing:-.047em;margin:17px 0 22px;color:#17181a}
+.tool-tags{display:flex;flex-wrap:wrap;align-items:flex-start;gap:9px;padding:0;margin:0;list-style:none}
+.tool-tags li{max-width:100%;overflow-wrap:anywhere;border-radius:8px;background:#f3f3f1;border:1px solid #eaeae7;padding:9px 12px;font:600 13px/1.35 'DM Sans',sans-serif;color:#35373b}
+@media(max-width:760px){
+  .simple-tools.tools-expanded{grid-template-columns:1fr;gap:12px}
+  .simple-tools.tools-expanded .tool-card{padding:24px;min-height:0;border-radius:14px}
+  .simple-tools.tools-expanded .tool-card h3{font-size:clamp(22px,6vw,28px);margin:15px 0 18px}
+  .tool-tags{gap:7px}
+  .tool-tags li{font-size:12px;padding:8px 10px}
+}
