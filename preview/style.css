@@ -98,3 +98,6 @@ html{scroll-padding-top:24px}body{overflow-x:hidden}img,video{max-width:100%}a,b
 .logo-wordmark .wordmark-accent{display:block;width:7px;height:7px;background:#ed2937;border-radius:50%;align-self:flex-end;transform:translateY(-2px)}
 @media(max-width:760px){.logo-wordmark .wordmark-name{font-size:16px;gap:5px}.site-header .logo-wordmark{gap:8px}.logo-wordmark .wordmark-accent{width:6px;height:6px}}
 @media(max-width:390px){.logo-wordmark .wordmark-name{font-size:15px}}
+
+/* Bold full-name wordmark */
+.logo-wordmark .wordmark-name,.logo-wordmark .wordmark-last{font-weight:800;letter-spacing:-.055em}
