@@ -115,12 +115,32 @@
     chips.appendChild(button);
   });
   appendMessage('Ciao! Benvenuto nel mio portfolio. Qui puoi scoprire le mie competenze, le esperienze professionali e la formazione. Da cosa vuoi iniziare?','bot');
+  const mobileChat=window.matchMedia('(max-width: 600px)');
+  function syncVisualViewport(){
+    if(!mobileChat.matches||panel.hidden)return;
+    const viewport=window.visualViewport;
+    root.style.setProperty('--mm-chat-viewport-height',(viewport?viewport.height:window.innerHeight)+'px');
+    root.style.setProperty('--mm-chat-viewport-top',(viewport?viewport.offsetTop:0)+'px');
+  }
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize',syncVisualViewport,{passive:true});
+    window.visualViewport.addEventListener('scroll',syncVisualViewport,{passive:true});
+  }
+  window.addEventListener('resize',syncVisualViewport,{passive:true});
   function setOpen(open) {
+    if(!open&&root.contains(document.activeElement))document.activeElement.blur();
     panel.hidden=!open;
+    root.classList.toggle('chat-open',open);
     toggle.setAttribute('aria-expanded',String(open));
     toggle.setAttribute('aria-label',open?'Chiudi assistente di Marco':'Apri assistente di Marco');
-    if(open)input.focus({preventScroll:true});
-    else toggle.focus({preventScroll:true});
+    if(open){
+      syncVisualViewport();
+      if(!mobileChat.matches)input.focus({preventScroll:true});
+    }else{
+      root.style.removeProperty('--mm-chat-viewport-height');
+      root.style.removeProperty('--mm-chat-viewport-top');
+      toggle.focus({preventScroll:true});
+    }
   }
   toggle.addEventListener('click',()=>setOpen(panel.hidden));
   close.addEventListener('click',()=>setOpen(false));
