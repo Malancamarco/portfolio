@@ -73,3 +73,7 @@ html{scroll-padding-top:24px}body{overflow-x:hidden}img,video{max-width:100%}a,b
   html{scroll-behavior:auto}
   .simple-skills article,.mobile-menu span{transition:none}
 }
+
+/* Tablet menu behavior and safe-area support */
+@media(max-width:760px){.desktop-nav,.header-cta{display:none}.mobile-menu{display:flex;margin-left:auto;flex-direction:column;justify-content:center;align-items:center}.mobile-nav{display:none}.mobile-nav.open{display:flex;flex-direction:column}.site-header{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}
+@media(max-width:390px){.site-header{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}}
