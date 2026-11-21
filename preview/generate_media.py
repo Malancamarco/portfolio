@@ -23,3 +23,5 @@ for name,video_id,page in CLIPS:
   print(name,os.path.getsize(target),"source:",page)
  finally:
   os.unlink(source)
+
+# Retry publication with conflict-safe workflow.
