@@ -44,9 +44,11 @@ window.addEventListener('scroll',()=>{
     const total=document.documentElement.scrollHeight-window.innerHeight;
     const progress=$('#progress');
     if(progress)progress.style.width=Math.min(100,Math.max(0,window.scrollY/Math.max(total,1)*100))+'%';
+    document.querySelector('#header')?.classList.toggle('is-scrolled',window.scrollY>20);
     ticking=false;
   });
 },{passive:true});
+document.querySelector('#header')?.classList.toggle('is-scrolled',window.scrollY>20);
 
 const video=$('.hero-video');
 if(video){
