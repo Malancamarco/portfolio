@@ -16,7 +16,7 @@
       <div class="mm-chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
       <div class="mm-chat-chips" aria-label="Domande suggerite"></div>
       <form class="mm-chat-form">
-        <input class="mm-chat-input" type="text" maxlength="250" aria-label="Scrivi una domanda" autocomplete="off" placeholder="Chiedimi qualcosa su Marco…" required>
+        <input class="mm-chat-input" type="text" maxlength="250" aria-label="Scrivi una domanda" autocomplete="off" placeholder="Chiedimi qualcosa sul mio profilo…" required>
         <button class="mm-chat-send" type="submit" aria-label="Invia domanda">↗</button>
       </form>
       <p class="mm-chat-disclaimer">Risposte preimpostate, basate sul portfolio. Nessuna AI esterna o invio di dati.</p>
@@ -39,38 +39,38 @@
     {
       label:'Esperienze',
       keys:['esperienz','lavor','azienda','day1','sevenia','wdigital','w r digital','carriera','occupaz'],
-      answer:'Marco lavora dal 2024 presso DAY1 Business Development come IT Specialist, occupandosi di supporto informatico, contenuti digitali e strumenti AI. In precedenza ha lavorato in W[r]Digital su WordPress, SEO e newsletter e in Sevenia Tech sullo sviluppo web.'
+      answer:'Dal 2024 lavoro presso DAY1 Business Development come IT Specialist, dove mi occupo di supporto informatico, contenuti digitali e strumenti AI. In precedenza ho lavorato in W[r]Digital su WordPress, SEO e newsletter e in Sevenia Tech nell’ambito dello sviluppo web.'
     },
     {
       label:'Competenze IT',
       keys:['supporto','informat','sistem','hardware','windows','software','help desk','account','rete','linux','vpn','it specialist'],
-      answer:'Le principali attività IT di Marco comprendono assistenza agli utenti, configurazione e manutenzione di software Windows, gestione di account e permessi e risoluzione dei problemi operativi. Tra gli strumenti confermati: Windows 10/11, Linux, VPN e AnyDesk.'
+      answer:'Mi occupo di assistenza tecnica agli utenti, configurazione e manutenzione di software Windows, gestione di account e permessi e risoluzione di problemi operativi. Utilizzo Windows 10/11, Linux, VPN e AnyDesk.'
     },
     {
       label:'AI e strumenti',
       keys:['intelligenza artificiale',' ai ','openai','chatgpt','gemini','claude','copilot','heygen','prompt','automaz','workflow','agent','manus','notebooklm','api'],
-      answer:'Marco applica l’intelligenza artificiale alla produzione di materiali digitali e all’ottimizzazione dei processi. Utilizza ChatGPT/OpenAI, Claude, Gemini, Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly e Google AI Studio. Ha indicato anche esperienza con OpenAI API.'
+      answer:'Utilizzo l’intelligenza artificiale per produrre materiali digitali e ottimizzare i processi di lavoro. Tra gli strumenti che conosco ci sono ChatGPT/OpenAI, Claude, Gemini, Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly e Google AI Studio. Utilizzo anche OpenAI API.'
     },
     {
       label:'Sviluppo web',
       keys:['svilupp','programmaz','javascript','node','php','html','css','wordpress','frontend','front end','github','bootstrap','tailwind','sito web','codice'],
-      answer:'Marco ha esperienza nello sviluppo e aggiornamento di siti e applicazioni web. Utilizza HTML, CSS, JavaScript, PHP, Node.js, WordPress, Visual Studio Code, GitHub, Bootstrap e Tailwind CSS. Ha lavorato nello sviluppo web presso Sevenia Tech.'
+      answer:'Ho esperienza nello sviluppo e nell’aggiornamento di siti e applicazioni web. Utilizzo HTML, CSS, JavaScript, PHP, Node.js, WordPress, Visual Studio Code, GitHub, Bootstrap e Tailwind CSS. Ho maturato esperienza in questo ambito presso Sevenia Tech.'
     },
     {
       label:'Marketing e design',
       keys:['marketing','dem','amazon','grafica','grafich','design','video','adobe','photoshop','illustrator','canva','seo','newsletter','mailchimp','brevo','e commerce','presentaz','comunicaz'],
-      answer:'Le competenze digitali di Marco comprendono campagne DEM, contenuti Amazon A+, materiali grafici, video, presentazioni e articoli SEO. Tra gli strumenti: Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva, Figma, Mailchimp, Brevo e Amazon Seller Central.'
+      answer:'Mi occupo anche di comunicazione digitale: realizzo campagne DEM, contenuti Amazon A+, materiali grafici, video e presentazioni e ho esperienza nella redazione di articoli SEO. Utilizzo Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva, Figma, Mailchimp, Brevo e Amazon Seller Central.'
     },
     {
       label:'Formazione',
       keys:['formaz','studi','diploma','certificat','aulab','ecampus','corso','istruz','universit','scuola','lingu','inglese','francese'],
-      answer:'Il percorso di Marco comprende Conversation & Prompt Design (Aulab, 2025), Digital Graphic Design & Communication (eCampus, 2023–2024), Coding Bootcamp Full Stack (Aulab, 2022) e un diploma al Liceo Clemente Rebora. Lingue: italiano madrelingua, inglese B1 e francese B1.'
+      answer:'Il mio percorso formativo comprende Conversation & Prompt Design (Aulab, 2025), Digital Graphic Design & Communication (eCampus, 2023–2024), Coding Bootcamp Full Stack (Aulab, 2022) e il diploma al Liceo Clemente Rebora. Parlo italiano (madrelingua), inglese (B1) e francese (B1).'
     },
     {
       label:'Contatti',
       keys:['contatt','email','mail','linkedin','scriv','raggiung','colloquio','candid','assum','opportunit','recapito'],
-      answer:'Per opportunità professionali puoi contattare Marco direttamente via email o tramite LinkedIn.',
-      links:[['Scrivi una email','mailto:malancamarco3@gmail.com'],['Profilo LinkedIn','https://www.linkedin.com/in/marcomalanca']]
+      answer:'Per opportunità professionali puoi contattarmi via email o tramite LinkedIn.',
+      links:[['Scrivimi una email','mailto:malancamarco3@gmail.com'],['Il mio LinkedIn','https://www.linkedin.com/in/marcomalanca']]
     }
   ];
   const suggestions = ['Esperienze','Competenze IT','AI e strumenti','Sviluppo web','Formazione','Contatti'];
@@ -91,13 +91,13 @@
   function answer(question) {
     const t=' '+normalize(question)+' ';
     if(has(t,[' ciao ',' salve ',' buongiorno ',' buonasera ',' hello ',' hey ']))
-      return {answer:'Ciao! Posso raccontarti le competenze, le esperienze e la formazione di Marco, oppure indicarti come contattarlo. Scegli un argomento o scrivi una domanda.'};
+      return {answer:'Ciao! Posso raccontarti le mie competenze, le esperienze professionali e il mio percorso formativo. Scegli un argomento o scrivimi una domanda.'};
     if(has(t,[' chi sei ',' cosa sei ',' chatbot ',' sei un ai ',' sei ai ',' sei umano ']))
-      return {answer:'Sono un assistente informativo con risposte preimpostate sul portfolio di Marco. Non sono una AI generativa e non invio i tuoi messaggi a servizi esterni.'};
+      return {answer:'Sono l’assistente virtuale del portfolio di Marco: presento il suo percorso in prima persona utilizzando risposte preimpostate. Non sono Marco in persona, non utilizzo una AI generativa e non invio i tuoi messaggi a servizi esterni.'};
     const scores=topics.map(topic=>topic.keys.reduce((n,key)=>n+(t.includes(key)?key.length:0),0));
     const index=scores.indexOf(Math.max(...scores));
     if(scores[index]>0)return topics[index];
-    return {answer:'Posso aiutarti con esperienze professionali, competenze IT, intelligenza artificiale, sviluppo web, formazione e contatti. Per altre informazioni puoi scrivere direttamente a Marco.',links:[['Contatta Marco','mailto:malancamarco3@gmail.com']]};
+    return {answer:'Posso raccontarti le mie esperienze professionali, le competenze IT, il mio lavoro con l’intelligenza artificiale, lo sviluppo web e la formazione. Se hai altre domande, puoi contattarmi direttamente via email.',links:[['Scrivimi','mailto:malancamarco3@gmail.com']]};
   }
   function handleQuestion(question) {
     const q=question.trim().slice(0,250);
@@ -114,7 +114,7 @@
     button.addEventListener('click',()=>handleQuestion(label));
     chips.appendChild(button);
   });
-  appendMessage('Ciao! Sono l’assistente del portfolio di Marco. Posso aiutarti a conoscere le sue competenze, esperienze e formazione. Da cosa vuoi iniziare?','bot');
+  appendMessage('Ciao! Benvenuto nel mio portfolio. Qui puoi scoprire le mie competenze, le esperienze professionali e la formazione. Da cosa vuoi iniziare?','bot');
   function setOpen(open) {
     panel.hidden=!open;
     toggle.setAttribute('aria-expanded',String(open));
