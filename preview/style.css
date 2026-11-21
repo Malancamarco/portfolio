@@ -413,3 +413,15 @@ body.menu-open .site-header{
 .hero-bottom .scroll-cue:hover{color:var(--red)}
 .hero-bottom .scroll-cue .down-arrow{display:inline-block;font-size:18px;line-height:1}
 @media(prefers-reduced-motion:reduce){.hero-bottom .scroll-cue{transition:none}}
+
+/* Secondary hero CTA — black surface, white border, matching the primary button */
+.hero-actions .pill-outline{
+  background:#101113;
+  color:#fff;
+  border:1px solid #fff;
+  text-decoration:none;
+  box-sizing:border-box;
+}
+.hero-actions .pill-outline:hover{background:#222326;border-color:#fff}
+.hero-actions .pill-outline .hero-cta-arrow{flex:none;display:block}
+.hero-actions .pill-outline:focus-visible{outline:2px solid #fff;outline-offset:4px}
