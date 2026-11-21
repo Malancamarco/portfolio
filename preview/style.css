@@ -218,3 +218,8 @@ body{min-width:280px;overflow-x:clip}
 @media(prefers-reduced-motion:reduce){
   .mobile-menu span{transition:none}
 }
+
+/* Footer LinkedIn icon */
+.simple-footer .linkedin-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+.simple-footer .linkedin-link svg{display:block;flex:none;width:21px;height:21px}
+.simple-footer .linkedin-link:hover{color:#0a66c2}
