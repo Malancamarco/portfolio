@@ -223,3 +223,15 @@ body{min-width:280px;overflow-x:clip}
 .simple-footer .linkedin-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
 .simple-footer .linkedin-link svg{display:block;flex:none;width:21px;height:21px}
 .simple-footer .linkedin-link:hover{color:#0a66c2}
+
+/* LinkedIn navigation and footer spacing */
+.navbar-linkedin{display:inline-flex;align-items:center;justify-content:center;flex:none;width:40px;height:40px;border-radius:12px;color:#fff;transition:background .2s,color .2s}
+.navbar-linkedin svg{display:block;width:22px;height:22px}
+.navbar-linkedin:hover{background:#ffffff24;color:#fff}
+.mobile-linkedin{display:flex!important;align-items:center;justify-content:flex-start;gap:13px}
+.mobile-linkedin svg{flex:0 0 22px;width:22px;height:22px;display:block}
+.mobile-linkedin span{display:inline-block;width:auto!important;flex:none;margin:0!important}
+.simple-footer .linkedin-link{display:inline-flex!important;align-items:center;justify-content:flex-start;column-gap:14px!important;white-space:nowrap}
+.simple-footer .linkedin-link svg{display:block;flex:0 0 21px;width:21px;height:21px}
+.simple-footer .linkedin-link>span{display:inline-block!important;flex:0 0 auto!important;width:auto!important;margin:0!important}
+@media(max-width:980px){.navbar-linkedin{display:none}}
