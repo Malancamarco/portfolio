@@ -240,3 +240,27 @@ body{min-width:280px;overflow-x:clip}
 .simple-footer .footer-email{display:inline-flex;align-items:center;min-height:44px;font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;overflow-wrap:anywhere}
 .simple-footer .footer-email:hover{color:#d12634}
 @media(max-width:760px){.simple-footer .footer-email{max-width:100%;min-height:44px;font-size:13px}}
+
+/* Technology chips: branded red hover, touch-friendly visual feedback */
+.tool-tags li{
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+@media(hover:hover) and (pointer:fine){
+  .tool-tags li:hover{
+    background-color:var(--red);
+    border-color:var(--red);
+    color:#fff;
+    box-shadow:0 6px 14px rgba(237,41,55,.17);
+    transform:translateY(-2px);
+  }
+}
+@media(hover:none){
+  .tool-tags li:active{
+    background-color:var(--red);
+    border-color:var(--red);
+    color:#fff;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .tool-tags li{transition:none}
+}
