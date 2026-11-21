@@ -77,3 +77,16 @@ html{scroll-padding-top:24px}body{overflow-x:hidden}img,video{max-width:100%}a,b
 /* Tablet menu behavior and safe-area support */
 @media(max-width:760px){.desktop-nav,.header-cta{display:none}.mobile-menu{display:flex;margin-left:auto;flex-direction:column;justify-content:center;align-items:center}.mobile-nav{display:none}.mobile-nav.open{display:flex;flex-direction:column}.site-header{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}}
 @media(max-width:390px){.site-header{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}}
+
+/* Light contact footer: quiet, polished close following the dark education section */
+.contact-static{background:#f6f6f4;color:#141518;border-top:1px solid #d9d9d5}
+.contact-static .section-id{color:#6a6c70;border-color:#c9c9c5}
+.contact-static h2{color:#151619}
+.contact-static h2 em{color:#db2936}
+.contact-static>div>p{color:#56595d}
+.contact-static .pill-red{background:#dd2635;color:#fff}
+.contact-static .simple-footer{border-color:#c9c9c5;color:#25272a}
+.contact-static .simple-footer a{color:#23252a}
+.contact-static .simple-footer a:hover{color:#d12634}
+.contact-static .simple-footer span{color:#6c6f73}
+@media(max-width:760px){.contact-static{padding-top:70px;padding-bottom:max(26px,env(safe-area-inset-bottom))}}
