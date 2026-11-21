@@ -395,3 +395,21 @@ body.menu-open .site-header{
 @media(prefers-reduced-motion:reduce){
   .site-header .mobile-menu span{transition:none}
 }
+
+/* Interactive hero scroll cue */
+.hero-bottom .scroll-cue{
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  min-height:44px;
+  padding:6px 0;
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+  transition:color .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.hero-bottom .scroll-cue:hover{color:var(--red)}
+.hero-bottom .scroll-cue .down-arrow{display:inline-block;font-size:18px;line-height:1}
+@media(prefers-reduced-motion:reduce){.hero-bottom .scroll-cue{transition:none}}
