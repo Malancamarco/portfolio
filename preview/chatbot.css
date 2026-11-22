@@ -166,6 +166,8 @@
 .mm-chat-send,.mm-chat-bubble--user,.mm-chat-toggle-badge{color:#fff}
 
 /* Portfolio white SVG replaces the MM initials in launcher and header. */
-.mm-chat-toggle-icon{background:#24272B;border:1px solid rgba(255,255,255,.2)}
+.mm-chat-toggle-icon{background:#47ABBF;border:1px solid #47ABBF;color:#fff}
+.mm-chat-avatar{background:#47ABBF;border-color:#47ABBF}
+.mm-chat-toggle-icon .mm-chat-brandmark,.mm-chat-avatar .mm-chat-brandmark{color:#fff}
 .mm-chat-brandmark{display:block;width:15px;height:20px;flex:none}
 .mm-chat-avatar .mm-chat-brandmark{width:19px;height:26px}
