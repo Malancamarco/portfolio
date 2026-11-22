@@ -1,0 +1,40 @@
+name: Prepare selected cinematic hero clips
+on:
+  push:
+    paths:
+      - 'preview/render_hero.py'
+      - '.github/workflows/hero-media.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Download and encode Pexels clips
+        run: python preview/render_hero.py
+      - name: Verify optimized media
+        run: |
+          set -e
+          for id in 04-red-waves 05-processor 06-digital-wave; do
+            test -s "preview/assets/${id}.mp4"
+            test -s "preview/assets/${id}.jpg"
+            ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 "preview/assets/${id}.mp4"
+          done
+      - name: Commit media assets
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add preview/assets/04-red-waves.mp4 preview/assets/04-red-waves.jpg preview/assets/05-processor.mp4 preview/assets/05-processor.jpg preview/assets/06-digital-wave.mp4 preview/assets/06-digital-wave.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m 'Add optimized selected cinematic backgrounds'
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
