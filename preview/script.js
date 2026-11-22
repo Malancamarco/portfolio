@@ -65,50 +65,38 @@ if(video){
 }
 
 
-// Premium motion: one-shot viewport reveals with no external dependencies.
-// Content stays readable without JavaScript or IntersectionObserver.
+// Scroll motion v3: replay when content re-enters the viewport.
+// Never hides readable content, and does not depend on extra libraries.
 (()=>{
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
-  if(reduced.matches||!('IntersectionObserver' in window))return;
-  const hero=document.querySelector('.hero');
-  // Trigger a visible entrance even when the deferred script runs after first paint.
-  if(hero)hero.classList.add('premium-hero-play');
+  const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(motion.matches||!('IntersectionObserver' in window))return;
+  const elements=document.querySelectorAll(
+    'main section:not(.hero) .section-id,'+
+    'main section:not(.hero) .simple-heading,'+
+    'main section:not(.hero) .simple-skills article,'+
+    'main section:not(.hero) .simple-experience article,'+
+    'main section:not(.hero) .simple-tools .tool-card,'+
+    'main section:not(.hero) .language-strip,'+
+    '.contact-static h2,.contact-static .container>p,.contact-static .container>.pill'
+  );
   const observer=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
-      if(!entry.isIntersecting)return;
       const el=entry.target;
-      observer.unobserve(el);
-      requestAnimationFrame(()=>el.classList.add('premium-visible'));
-      el.addEventListener('transitionend',e=>{
-        if(e.target===el&&e.propertyName==='opacity'){
-          el.classList.remove('premium-entering');
-          el.style.removeProperty('--premium-delay');
+      if(entry.isIntersecting){
+        if(!el.classList.contains('premium-in-view')){
+          el.classList.add('premium-in-view');
         }
-      });
-      window.setTimeout(()=>{
-        el.classList.remove('premium-entering');
-        el.style.removeProperty('--premium-delay');
-      },1600);
+      }else{
+        // Allow animation to replay upon re-entry.
+        el.classList.remove('premium-in-view');
+      }
     });
-  },{rootMargin:'0px 0px -65px 0px',threshold:0.03});
-  const cardsSelector='.section-id,.simple-heading,.simple-skills article,.simple-experience article,.simple-tools .tool-card,.language-strip,.contact-static>.container>h2,.contact-static>.container>p,.contact-static>.container>.pill';
-  document.querySelectorAll('main section:not(.hero)').forEach(section=>{
-    [...section.querySelectorAll(cardsSelector)].forEach((element,index)=>{
-      // Avoid flashing elements already on screen at startup.
-      if(element.getBoundingClientRect().top<window.innerHeight*.45)return;
-      element.dataset.premiumReveal='';
-      element.style.setProperty('--premium-delay',Math.min(index%4,3)*85+'ms');
-      element.classList.add('premium-entering');
-      observer.observe(element);
-    });
-  });
-  reduced.addEventListener('change',event=>{
-    if(!event.matches)return;
-    observer.disconnect();
-    document.querySelectorAll('.premium-entering').forEach(el=>{
-      el.classList.remove('premium-entering');
-      el.style.removeProperty('--premium-delay');
-    });
-    hero?.classList.remove('premium-hero-play');
+  },{rootMargin:'0px 0px -12% 0px',threshold:0.12});
+  elements.forEach(el=>observer.observe(el));
+  motion.addEventListener('change',event=>{
+    if(event.matches){
+      observer.disconnect();
+      elements.forEach(el=>el.classList.remove('premium-in-view'));
+    }
   });
 })();
