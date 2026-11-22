@@ -572,3 +572,80 @@ body.menu-open .site-header{
  }
  .mobile-nav .mobile-language-switch a[aria-current="page"]{color:#47ABBF}
 }
+
+/* Premium interaction layer — progressively enhanced, no layout-shifting effects.
+   Honours keyboard focus, touch and reduced-motion preferences. */
+@media (prefers-reduced-motion:no-preference) {
+  [data-premium-reveal].premium-entering {
+    opacity:0;
+    transform:translate3d(0,18px,0);
+  }
+  [data-premium-reveal].premium-entering.premium-visible {
+    opacity:1;
+    transform:translate3d(0,0,0);
+    transition:opacity 660ms cubic-bezier(.2,.72,.2,1),transform 660ms cubic-bezier(.2,.72,.2,1);
+    transition-delay:var(--premium-delay,0ms);
+  }
+  .hero .hero-main h1,.hero .hero-main>p,.hero .hero-actions {
+    transition:opacity 780ms cubic-bezier(.2,.72,.2,1),transform 780ms cubic-bezier(.2,.72,.2,1);
+  }
+  .hero.premium-hero-preparing .hero-main h1,
+  .hero.premium-hero-preparing .hero-main>p,
+  .hero.premium-hero-preparing .hero-actions {
+    opacity:0;
+    transform:translate3d(0,14px,0);
+  }
+  .hero.premium-hero-ready .hero-main h1,
+  .hero.premium-hero-ready .hero-main>p,
+  .hero.premium-hero-ready .hero-actions {
+    opacity:1;
+    transform:none;
+  }
+  .hero.premium-hero-ready .hero-main>p{transition-delay:105ms}
+  .hero.premium-hero-ready .hero-actions{transition-delay:190ms}
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  /* Subtle elevation: entirely CSS based, no continuous pointer listeners. */
+  .simple-skills article,.simple-tools.tools-expanded .tool-card {
+    transition:transform 320ms cubic-bezier(.2,.72,.2,1),border-color 320ms ease,box-shadow 320ms ease;
+    transform:translateZ(0);
+  }
+  .simple-skills article:hover,.simple-skills article:focus-within,
+  .simple-tools.tools-expanded .tool-card:hover,.simple-tools.tools-expanded .tool-card:focus-within {
+    transform:translate3d(0,-5px,0);
+    border-color:rgba(71,171,191,.65);
+    box-shadow:0 17px 38px rgba(9,20,26,.095);
+  }
+  .simple-experience article{transition:background-color 260ms ease,border-color 260ms ease}
+  .simple-experience article:hover{background-color:rgba(71,171,191,.045);border-color:rgba(71,171,191,.45)}
+  .hero-actions .pill,.contact-static .pill{
+    transition:transform 260ms cubic-bezier(.2,.72,.2,1),background-color 240ms ease,color 240ms ease,box-shadow 240ms ease,border-color 240ms ease;
+  }
+  .hero-actions .pill:hover,.contact-static .pill:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+  }
+  .hero-cta-arrow{transition:transform 260ms ease}
+  .hero-actions .pill:hover .hero-cta-arrow,.contact-static .pill:hover .hero-cta-arrow{
+    transform:translateX(4px);
+  }
+  .site-header .desktop-nav a{position:relative}
+  .site-header .desktop-nav a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-8px;height:1.5px;
+    background:#47ABBF;transform:scaleX(0);transform-origin:left center;
+    transition:transform 240ms cubic-bezier(.2,.72,.2,1);
+    pointer-events:none;
+  }
+  .site-header .desktop-nav a:hover::after,
+  .site-header .desktop-nav a:focus-visible::after{transform:scaleX(1)}
+}
+/* Keep all content visible if motion is disabled or scripting is unavailable. */
+@media (prefers-reduced-motion:reduce) {
+  [data-premium-reveal],.premium-entering,.premium-visible,
+  .hero.premium-hero-preparing .hero-main h1,
+  .hero.premium-hero-preparing .hero-main>p,
+  .hero.premium-hero-preparing .hero-actions {
+    opacity:1!important;transform:none!important;transition:none!important;
+  }
+  .hero-cta-arrow,.simple-experience article{transition:none!important}
+}
