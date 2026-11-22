@@ -8,7 +8,7 @@
     <section class="mm-chat-panel" id="mm-chat-panel" role="dialog" aria-label="Assistente del portfolio di Marco Malanca" hidden>
       <div class="mm-chat-top">
         <div class="mm-chat-brand">
-          <span class="mm-chat-avatar" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2M8 15h.01M16 15h.01M9 19h6"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="mm-chat-avatar" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span>
           <div class="mm-chat-headline"><strong>Assistente di Marco</strong><span>Informazioni sul profilo professionale</span></div>
         </div>
         <button class="mm-chat-close" type="button" aria-label="Chiudi assistente">×</button>
@@ -22,7 +22,7 @@
       
     </section>
     <button class="mm-chat-toggle" type="button" aria-expanded="false" aria-controls="mm-chat-panel" aria-label="Apri assistente di Marco">
-      <span class="mm-chat-toggle-icon" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2M8 15h.01M16 15h.01M9 19h6"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span><span class="mm-chat-toggle-label">Ti serve aiuto?</span>
+      <span class="mm-chat-toggle-icon" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span><span class="mm-chat-toggle-label">Ti serve aiuto?</span>
     </button>`;
   document.body.appendChild(root);
   const toggle = root.querySelector('.mm-chat-toggle');
@@ -39,37 +39,37 @@
     {
       label:'Esperienze',
       keys:['esperienz','lavor','azienda','day1','sevenia','wdigital','w r digital','carriera','occupaz'],
-      answer:'Dal 2024 lavoro presso DAY1 Business Development come IT Specialist, dove mi occupo di supporto informatico, contenuti digitali e strumenti AI. In precedenza ho lavorato in W[r]Digital su WordPress, SEO e newsletter e in Sevenia Tech nell’ambito dello sviluppo web.'
+      answer:'Dal 2024 a oggi lavoro presso DAY1 Business Development come IT Specialist: mi occupo di supporto IT, campagne email, contenuti digitali per il settore farmaceutico e automazioni AI. Ho lavorato in W[r]Digital (2024–2024) su siti web, SEO, newsletter e materiali grafici, e in Sevenia Tech (2023–2024) nello sviluppo e nella manutenzione di siti e applicazioni web.'
     },
     {
       label:'Competenze IT',
       keys:['supporto','informat','sistem','hardware','windows','software','help desk','account','rete','linux','vpn','it specialist'],
-      answer:'Mi occupo di assistenza tecnica agli utenti, configurazione e manutenzione di software Windows, gestione di account e permessi e risoluzione di problemi operativi. Utilizzo Windows 10/11, Linux, VPN e AnyDesk.'
+      answer:'Mi occupo di assistenza agli utenti, configurazione di software Windows e macOS, gestione di account e permessi e risoluzione dei problemi operativi. Tra gli strumenti indicati nel portfolio ci sono Windows 10/11, Linux, VPN e AnyDesk.'
     },
     {
       label:'AI e strumenti',
       keys:['intelligenza artificiale',' ai ','openai','chatgpt','gemini','claude','copilot','heygen','prompt','automaz','workflow','agent','manus','notebooklm','api'],
-      answer:'Utilizzo l’intelligenza artificiale per produrre materiali digitali e ottimizzare i processi di lavoro. Tra gli strumenti che conosco ci sono ChatGPT/OpenAI, Claude, Gemini, Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly e Google AI Studio. Utilizzo anche OpenAI API.'
+      answer:'Utilizzo l'AI generativa per creare contenuti digitali, sviluppare automazioni e ottimizzare i flussi di lavoro. Tra gli strumenti presenti nel portfolio: ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly, Google AI Studio e Lumen5.'
     },
     {
       label:'Sviluppo web',
       keys:['svilupp','programmaz','javascript','node','php','html','css','wordpress','frontend','front end','github','bootstrap','tailwind','sito web','codice'],
-      answer:'Ho esperienza nello sviluppo e nell’aggiornamento di siti e applicazioni web. Utilizzo HTML, CSS, JavaScript, PHP, Node.js, WordPress, Visual Studio Code, GitHub, Bootstrap e Tailwind CSS. Ho maturato esperienza in questo ambito presso Sevenia Tech.'
+      answer:'Mi occupo di sviluppo e manutenzione di siti e applicazioni web, con attenzione a funzionalità, esperienza utente e compatibilità tra dispositivi. Tra le tecnologie del portfolio: HTML, CSS, JavaScript, PHP, Node.js, WordPress, GitHub, Visual Studio Code, Bootstrap e Tailwind CSS. Ho svolto attività di sviluppo web presso Sevenia Tech (2023–2024).'
     },
     {
       label:'Marketing e design',
       keys:['marketing','dem','amazon','grafica','grafich','design','video','adobe','photoshop','illustrator','canva','seo','newsletter','mailchimp','brevo','e commerce','presentaz','comunicaz'],
-      answer:'Mi occupo anche di comunicazione digitale: realizzo campagne DEM, contenuti Amazon A+, materiali grafici, video e presentazioni e ho esperienza nella redazione di articoli SEO. Utilizzo Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva, Figma, Mailchimp, Brevo e Amazon Seller Central.'
+      answer:'Realizzo campagne email, contenuti grafici e video, presentazioni, materiali per l'e-commerce e testi ottimizzati SEO. Nel portfolio figurano Amazon Seller Central e A+ Content, Mailchimp, Brevo, Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva e Figma.'
     },
     {
       label:'Formazione',
       keys:['formaz','studi','diploma','certificat','aulab','ecampus','corso','istruz','universit','scuola','lingu','inglese','francese'],
-      answer:'Il mio percorso formativo comprende Conversation & Prompt Design (Aulab, 2025), Digital Graphic Design & Communication (eCampus, 2023–2024), Coding Bootcamp Full Stack (Aulab, 2022) e il diploma al Liceo Clemente Rebora. Parlo italiano (madrelingua), inglese (B1) e francese (B1).'
+      answer:'Il mio percorso comprende Conversation & Prompt Design (Aulab, 2025), Digital Graphic Design & Communication (eCampus, 2023–2024), Coding Bootcamp Full Stack (Aulab, 2022) e il Diploma Economico Sociale (Liceo Clemente Rebora, 2017–2022). Lingue: italiano madrelingua, inglese B1 e francese B1.'
     },
     {
       label:'Contatti',
       keys:['contatt','email','mail','linkedin','scriv','raggiung','colloquio','candid','assum','opportunit','recapito'],
-      answer:'Per opportunità professionali puoi contattarmi via email o tramite LinkedIn.',
+      answer:'Valuto opportunità professionali in ambito IT, intelligenza artificiale e digital. Puoi contattarmi tramite email o LinkedIn.',
       links:[['Scrivimi una email','mailto:malancamarco3@gmail.com'],['Il mio LinkedIn','https://www.linkedin.com/in/marcomalanca']]
     }
   ];
@@ -93,7 +93,7 @@
     if(has(t,[' ciao ',' salve ',' buongiorno ',' buonasera ',' hello ',' hey ']))
       return {answer:'Ciao! Posso raccontarti le mie competenze, le esperienze professionali e il mio percorso formativo. Scegli un argomento o scrivimi una domanda.'};
     if(has(t,[' chi sei ',' cosa sei ',' chatbot ',' sei un ai ',' sei ai ',' sei umano ']))
-      return {answer:'Sono l’assistente virtuale del portfolio di Marco: presento il suo percorso in prima persona utilizzando risposte preimpostate. Non sono Marco in persona, non utilizzo una AI generativa e non invio i tuoi messaggi a servizi esterni.'};
+      return {answer:'Sono l'assistente virtuale del portfolio di Marco. Rispondo alle domande sul suo profilo utilizzando informazioni preimpostate del sito; non sono Marco e non utilizzo un servizio di AI generativa.'};
     const scores=topics.map(topic=>topic.keys.reduce((n,key)=>n+(t.includes(key)?key.length:0),0));
     const index=scores.indexOf(Math.max(...scores));
     if(scores[index]>0)return topics[index];
@@ -114,7 +114,7 @@
     button.addEventListener('click',()=>handleQuestion(label));
     chips.appendChild(button);
   });
-  appendMessage('Ciao! Benvenuto nel mio portfolio. Qui puoi scoprire le mie competenze, le esperienze professionali e la formazione. Da cosa vuoi iniziare?','bot');
+  appendMessage('Ciao! Posso aiutarti a conoscere le competenze, le esperienze e la formazione di Marco Malanca. Da quale argomento vuoi iniziare?','bot');
   const mobileChat=window.matchMedia('(max-width: 600px)');
   function syncVisualViewport(){
     if(!mobileChat.matches||panel.hidden)return;
