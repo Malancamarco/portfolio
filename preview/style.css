@@ -518,3 +518,25 @@ body.menu-open .site-header{
 
 /* Footer accent requested for the opportunities headline. */
 .contact-static h2 em{color:#47ABBF}
+
+/* Consistent navbar hover feedback on desktop and mobile. */
+.site-header .desktop-nav a,
+.site-header .navbar-linkedin,
+.site-header .header-cta,
+.site-header .logo-abstract,
+.mobile-nav a{transition:color .2s ease,background-color .2s ease,border-color .2s ease}
+.site-header .desktop-nav a:hover,
+.site-header .desktop-nav a:focus-visible,
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible{color:#47ABBF}
+.site-header .navbar-linkedin:hover,
+.site-header .navbar-linkedin:focus-visible{color:#47ABBF;background:rgba(71,171,191,.12)}
+.site-header .header-cta:hover,
+.site-header .header-cta:focus-visible{background:#47ABBF;color:#fff}
+.site-header .logo-abstract .abstract-symbol path{transition:fill .2s ease}
+.site-header .logo-abstract:hover .abstract-symbol path,
+.site-header .logo-abstract:focus-visible .abstract-symbol path{fill:#47ABBF}
+@media(prefers-reduced-motion:reduce){
+  .site-header .desktop-nav a,.site-header .navbar-linkedin,.site-header .header-cta,
+  .site-header .logo-abstract,.mobile-nav a,.site-header .logo-abstract .abstract-symbol path{transition:none}
+}
