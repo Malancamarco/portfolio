@@ -572,3 +572,6 @@ body.menu-open .site-header{
  }
  .mobile-nav .mobile-language-switch a[aria-current="page"]{color:#47ABBF}
 }
+
+/* Preserve the approved two-paragraph contact copy in both languages. */
+.contact-static>.container>p{white-space:pre-line}
