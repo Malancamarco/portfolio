@@ -43,7 +43,7 @@
     },
     {
       label:'IT skills',
-      keys:['it support','technical','computer','system','hardware','windows','software','help desk','account','network','linux','vpn','it specialist'],
+      keys:['it support','it skills','technical','computer','system','hardware','windows','software','help desk','account','network','linux','vpn','it specialist'],
       answer:"I provide end-user technical support, configure and maintain Windows software, manage accounts and permissions, and troubleshoot operational issues. My tools include Windows 10/11, Linux, VPN and AnyDesk."
     },
     {
