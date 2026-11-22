@@ -1,4 +1,4 @@
-"""Download and web-optimize three licensed Pexels cinematic video clips."""
+"""Download and web-optimize the selected licensed Pexels Chrome Motion video."""
 from pathlib import Path
 import subprocess
 import tempfile
@@ -7,9 +7,7 @@ import urllib.request
 OUT = Path(__file__).resolve().parent / "assets"
 OUT.mkdir(parents=True, exist_ok=True)
 CLIPS = (
-    ("04-red-waves", 36040808, 7.5),
-    ("05-processor", 35977437, 8.0),
-    ("06-digital-wave", 34577499, 8.0),
+    ("07-chrome-motion", 34630589, 10.0),
 )
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/132.0.0.0 Safari/537.36",
