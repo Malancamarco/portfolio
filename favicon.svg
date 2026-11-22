@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Marco Malanca">
+  <rect width="96" height="96" rx="20" fill="#090909"/>
+  <g transform="translate(18.6 9.6) scale(.92)" fill="#FFFFFF">
+    <path d="M0 60 8 54 7 19 9 17 32 35 63 10 63 0 32 25 0 0Z"/>
+    <path d="M63 23 56 28 54 66 32 48 0 73 0 83 32 58 63 83Z"/>
+  </g>
+</svg>
