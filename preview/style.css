@@ -692,3 +692,57 @@ html[lang="en"] .site-header .language-switch::before{content:"LANGUAGE"}
 @media(prefers-reduced-motion:reduce){
   .site-header .language-switch a{transition:none}
 }
+
+/* Button feedback and contextual SVG icons. No scroll-entry animations. */
+.section-card-icon{
+  display:block;
+  flex:none;
+  width:27px;
+  height:27px;
+  margin:16px 0 5px;
+  color:#31899A;
+  stroke:currentColor;
+}
+.simple-skills article .section-card-icon{color:#47ABBF}
+.simple-tools.tools-expanded .tool-card .section-card-icon{margin:13px 0 8px}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hero-actions .pill,.contact-static .pill,.site-header .header-cta{
+    transition:background-color .24s ease,color .24s ease,border-color .24s ease,box-shadow .24s ease,transform .24s cubic-bezier(.2,.75,.2,1);
+  }
+  .hero-actions .pill:hover,.contact-static .pill:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.20),0 0 0 1px rgba(71,171,191,.28);
+  }
+  .hero-actions .pill-red:hover,.contact-static .pill-red:hover{
+    background:#318fa4;
+    color:#fff;
+  }
+  .hero-actions .pill-outline:hover{
+    background:rgba(71,171,191,.15);
+    border-color:#47ABBF;
+  }
+  .site-header .header-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 7px 20px rgba(71,171,191,.22);
+  }
+  .hero-cta-arrow{transition:transform .24s ease}
+  .hero-actions .pill:hover .hero-cta-arrow,
+  .contact-static .pill:hover .hero-cta-arrow{
+    transform:translateX(4px);
+  }
+}
+.hero-actions .pill:active,.contact-static .pill:active,.site-header .header-cta:active{
+  transform:scale(.98);
+}
+.hero-actions .pill:focus-visible,.contact-static .pill:focus-visible,
+.site-header .header-cta:focus-visible{
+  outline:2px solid #47ABBF;
+  outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-actions .pill,.contact-static .pill,.site-header .header-cta,
+  .hero-cta-arrow{transition:none!important;animation:none!important}
+}
+@media(max-width:600px){
+  .section-card-icon{width:24px;height:24px;margin-top:12px}
+}
