@@ -46,18 +46,75 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 document.querySelector('#header')?.classList.toggle('is-scrolled',window.scrollY>20);
 
-const video=$('.hero-video');
-if(video){
-  video.muted=true;
-  video.defaultMuted=true;
-  video.autoplay=true;
-  video.loop=true;
-  video.playsInline=true;
-  const startVideo=()=>{if(!document.hidden)video.play().catch(()=>{});};
-  if(video.readyState===0)video.load();
-  startVideo();
-  video.addEventListener('loadeddata',startVideo,{once:true});
-  video.addEventListener('canplay',startVideo,{once:true});
-  window.addEventListener('pageshow',startVideo);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();else startVideo()});
+// Four-clip cinematic playlist. Keep the active layer visible while the next buffers.
+const heroLayers=Array.from(document.querySelectorAll('.hero-video-stack .hero-video'));
+if(heroLayers.length===2){
+  const clips=['02-intelligence','04-red-waves','05-processor','06-digital-wave'];
+  const mediaRoot=new URL('assets/',document.currentScript?.src||document.baseURI);
+  let currentLayer=0;
+  let currentClip=0;
+  let switching=false;
+  let pauseRequested=false;
+  const mediaURL=(name,extension)=>new URL(name+'.'+extension,mediaRoot).href;
+  const setClip=(el,index)=>{
+    const src=mediaURL(clips[index],'mp4');
+    let source=el.querySelector('source');
+    if(!source){
+      source=document.createElement('source');
+      source.type='video/mp4';
+      el.appendChild(source);
+    }
+    if(source.src!==src){
+      source.src=src;
+      el.poster=mediaURL(clips[index],'jpg');
+      el.load();
+    }
+  };
+  const playCurrent=()=>{
+    if(document.hidden)return;
+    const el=heroLayers[currentLayer];
+    el.muted=true;el.defaultMuted=true;el.playsInline=true;
+    el.play().catch(()=>{});
+  };
+  function advance(){
+    if(switching||document.hidden)return;
+    switching=true;
+    const nextIndex=(currentClip+1)%clips.length;
+    const previous=heroLayers[currentLayer];
+    const incoming=heroLayers[1-currentLayer];
+    setClip(incoming,nextIndex);
+    const onReady=()=>{
+      if(!switching)return;
+      incoming.muted=true;incoming.defaultMuted=true;incoming.playsInline=true;
+      incoming.play().then(()=>{
+        if(!switching)return;
+        incoming.classList.add('is-active');
+        previous.classList.remove('is-active');
+        currentLayer=1-currentLayer;
+        currentClip=nextIndex;
+        window.setTimeout(()=>{
+          previous.pause();
+          previous.currentTime=0;
+          switching=false;
+        },850);
+      }).catch(()=>{switching=false;});
+    };
+    if(incoming.readyState>=2)onReady();
+    else incoming.addEventListener('canplay',onReady,{once:true});
+  }
+  heroLayers.forEach(el=>{
+    el.muted=true;el.defaultMuted=true;el.playsInline=true;
+    el.addEventListener('ended',()=>{if(el===heroLayers[currentLayer])advance();});
+  });
+  setClip(heroLayers[1],1);
+  playCurrent();
+  heroLayers[0].addEventListener('canplay',playCurrent,{once:true});
+  window.addEventListener('pageshow',playCurrent);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){
+      heroLayers.forEach(el=>el.pause());
+    }else{
+      playCurrent();
+    }
+  });
 }
