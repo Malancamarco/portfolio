@@ -63,3 +63,52 @@ if(video){
   window.addEventListener('pageshow',startVideo);
   document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();else startVideo()});
 }
+
+
+// Premium reveals are progressive: original content stays visible without JS,
+// IntersectionObserver, or when reduced motion is requested.
+(()=>{
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(reduceMotion.matches||!('IntersectionObserver' in window))return;
+  const hero=document.querySelector('.hero');
+  if(hero){
+    hero.classList.add('premium-hero-preparing');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      hero.classList.remove('premium-hero-preparing');
+      hero.classList.add('premium-hero-ready');
+    }));
+  }
+  const sections=[...document.querySelectorAll('main section:not(.hero)')];
+  const observer=new IntersectionObserver(entries=>{
+    for(const entry of entries){
+      if(!entry.isIntersecting)continue;
+      const el=entry.target;
+      el.classList.add('premium-visible');
+      observer.unobserve(el);
+      // Clear animation-specific transform so interactive card hover
+      // remains fully controlled by CSS once the reveal is complete.
+      el.addEventListener('transitionend',event=>{
+        if(event.target===el&&event.propertyName==='transform'){
+          el.classList.remove('premium-entering');
+        }
+      },{once:true});
+      window.setTimeout(()=>el.classList.remove('premium-entering'),1100);
+    }
+  },{rootMargin:'0px 0px -35px 0px',threshold:0.05});
+  for(const section of sections){
+    const targets=section.querySelectorAll('.section-id,.simple-heading,.simple-skills article,.simple-experience article,.simple-tools .tool-card,.language-strip,.contact-static>.container>h2,.contact-static>.container>p,.contact-static>.container>.pill');
+    targets.forEach((el,i)=>{
+      // Elements already well inside the initial viewport should stay visible.
+      if(el.getBoundingClientRect().top<window.innerHeight*0.55)return;
+      el.dataset.premiumReveal='';
+      el.style.setProperty('--premium-delay',Math.min(i%4,3)*65+'ms');
+      el.classList.add('premium-entering');
+      observer.observe(el);
+    });
+  }
+  reduceMotion.addEventListener('change',event=>{
+    if(!event.matches)return;
+    observer.disconnect();
+    document.querySelectorAll('.premium-entering').forEach(el=>el.classList.remove('premium-entering'));
+  });
+})();
