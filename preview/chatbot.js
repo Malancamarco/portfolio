@@ -19,10 +19,10 @@
         <input class="mm-chat-input" type="text" maxlength="250" aria-label="Scrivi una domanda" autocomplete="off" placeholder="Chiedimi qualcosa sul mio profilo…" required>
         <button class="mm-chat-send" type="submit" aria-label="Invia messaggio"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></button>
       </form>
-      <p class="mm-chat-disclaimer">Risposte preimpostate, basate sul portfolio. Nessuna AI esterna o invio di dati.</p>
+      
     </section>
     <button class="mm-chat-toggle" type="button" aria-expanded="false" aria-controls="mm-chat-panel" aria-label="Apri assistente di Marco">
-      <span class="mm-chat-toggle-icon" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2M8 15h.01M16 15h.01M9 19h6"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span><span class="mm-chat-toggle-label">Hai una domanda?</span>
+      <span class="mm-chat-toggle-icon" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2M8 15h.01M16 15h.01M9 19h6"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span><span class="mm-chat-toggle-label">Ti serve aiuto?</span>
     </button>`;
   document.body.appendChild(root);
   const toggle = root.querySelector('.mm-chat-toggle');
