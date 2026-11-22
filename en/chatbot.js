@@ -39,37 +39,37 @@
     {
       label:'Experience',
       keys:['experience','career','work','jobs','company','day1','sevenia','wdigital','w r digital','employment'],
-      answer:answer:"I've worked as an IT Specialist at DAY1 Business Development since 2024, combining IT support, digital content and AI tools. Previously, I worked on WordPress, SEO and newsletters at W[r]Digital and on web development at Sevenia Tech."
+      answer:"I've worked as an IT Specialist at DAY1 Business Development since 2024, combining IT support, digital content and AI tools. Previously, I worked on WordPress, SEO and newsletters at W[r]Digital and on web development at Sevenia Tech."
     },
     {
       label:'IT skills',
       keys:['it support','technical','computer','system','hardware','windows','software','help desk','account','network','linux','vpn','it specialist'],
-      answer:answer:"I provide end-user technical support, configure and maintain Windows software, manage accounts and permissions, and troubleshoot operational issues. My tools include Windows 10/11, Linux, VPN and AnyDesk."
+      answer:"I provide end-user technical support, configure and maintain Windows software, manage accounts and permissions, and troubleshoot operational issues. My tools include Windows 10/11, Linux, VPN and AnyDesk."
     },
     {
       label:'AI & tools',
       keys:['artificial intelligence',' ai ','openai','chatgpt','gemini','claude','copilot','heygen','prompt','automation','workflow','agent','manus','notebooklm','api'],
-      answer:answer:"I use artificial intelligence to create digital materials and streamline workflows. I'm familiar with ChatGPT, Claude, Gemini, Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly and Google AI Studio."
+      answer:"I use artificial intelligence to create digital materials and streamline workflows. I'm familiar with ChatGPT, Claude, Gemini, Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly and Google AI Studio."
     },
     {
       label:'Web development',
       keys:['web development','development','programming','javascript','node','php','html','css','wordpress','frontend','front end','github','bootstrap','tailwind','website','coding'],
-      answer:answer:"I have experience developing and maintaining websites and web applications using HTML, CSS, JavaScript, PHP, Node.js, WordPress, Visual Studio Code, GitHub, Bootstrap and Tailwind CSS. I also worked in this area at Sevenia Tech."
+      answer:"I have experience developing and maintaining websites and web applications using HTML, CSS, JavaScript, PHP, Node.js, WordPress, Visual Studio Code, GitHub, Bootstrap and Tailwind CSS. I also worked in this area at Sevenia Tech."
     },
     {
       label:'Marketing & design',
       keys:['marketing','dem','amazon','graphic','design','video','adobe','photoshop','illustrator','canva','seo','newsletter','mailchimp','brevo','e commerce','presentation','communication'],
-      answer:answer:"I also work in digital communications, producing email marketing campaigns, Amazon A+ content, graphics, videos, presentations and SEO-oriented articles. I use Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva, Figma, Mailchimp, Brevo and Amazon Seller Central."
+      answer:"I also work in digital communications, producing email marketing campaigns, Amazon A+ content, graphics, videos, presentations and SEO-oriented articles. I use Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva, Figma, Mailchimp, Brevo and Amazon Seller Central."
     },
     {
       label:'Education',
       keys:['education','study','studies','diploma','certificate','aulab','ecampus','course','training','university','school','language','english','french'],
-      answer:answer:"My education includes Conversation & Prompt Design (Aulab, 2025), Digital Graphic Design & Communication (eCampus, 2023–2024), a Full Stack Coding Bootcamp (Aulab, 2022) and a high school diploma from Liceo Clemente Rebora. I speak Italian (native), English (B1) and French (B1)."
+      answer:"My education includes Conversation & Prompt Design (Aulab, 2025), Digital Graphic Design & Communication (eCampus, 2023–2024), a Full Stack Coding Bootcamp (Aulab, 2022) and a high school diploma from Liceo Clemente Rebora. I speak Italian (native), English (B1) and French (B1)."
     },
     {
       label:'Contact',
       keys:['contact','email','mail','linkedin','reach','interview','recruit','hire','opportunity','opportunities'],
-      answer:answer:"For professional opportunities, you can reach me by email or on LinkedIn.",
+      answer:"For professional opportunities, you can reach me by email or on LinkedIn.",
       links:[['Send me an email','mailto:malancamarco3@gmail.com'],['My LinkedIn','https://www.linkedin.com/in/marcomalanca']]
     }
   ];
@@ -91,13 +91,13 @@
   function answer(question) {
     const t=' '+normalize(question)+' ';
     if(has(t,[' hi ',' hello ',' hey ',' good morning ',' good afternoon ',' good evening ']))
-      return {answer:answer:"Hello! I can tell you about my skills, professional experience and education. Choose a topic or ask me a question."};
+      return {answer:"Hello! I can tell you about my skills, professional experience and education. Choose a topic or ask me a question."};
     if(has(t,[' who are you ',' what are you ',' chatbot ',' are you ai ',' are you human ',' are you a bot ']))
-      return {answer:answer:"I'm the virtual assistant for Marco's portfolio. I provide predefined answers in the first person, but I'm not Marco, I don't use generative AI and I don't share your messages with external services."};
+      return {answer:"I'm the virtual assistant for Marco's portfolio. I provide predefined answers in the first person, but I'm not Marco, I don't use generative AI and I don't share your messages with external services."};
     const scores=topics.map(topic=>topic.keys.reduce((n,key)=>n+(t.includes(key)?key.length:0),0));
     const index=scores.indexOf(Math.max(...scores));
     if(scores[index]>0)return topics[index];
-    return {answer:answer:"I can tell you about my professional experience, IT skills, AI work, web development and education. For anything else, feel free to contact me directly by email.",links:[['Email me','mailto:malancamarco3@gmail.com']]};
+    return {answer:"I can tell you about my professional experience, IT skills, AI work, web development and education. For anything else, feel free to contact me directly by email.",links:[['Email me','mailto:malancamarco3@gmail.com']]};
   }
   function handleQuestion(question) {
     const q=question.trim().slice(0,250);
