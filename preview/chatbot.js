@@ -49,7 +49,7 @@
     {
       label:'AI e strumenti',
       keys:['intelligenza artificiale',' ai ','openai','chatgpt','gemini','claude','copilot','heygen','prompt','automaz','workflow','agent','manus','notebooklm','api'],
-      answer:'Utilizzo l'AI generativa per creare contenuti digitali, sviluppare automazioni e ottimizzare i flussi di lavoro. Tra gli strumenti presenti nel portfolio: ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly, Google AI Studio e Lumen5.'
+      answer:"Utilizzo l'AI generativa per creare contenuti digitali, sviluppare automazioni e ottimizzare i flussi di lavoro. Tra gli strumenti presenti nel portfolio: ChatGPT, Claude, Google Gemini, Microsoft Copilot, Perplexity, Manus, NotebookLM, HeyGen, Adobe Firefly, Google AI Studio e Lumen5."
     },
     {
       label:'Sviluppo web',
@@ -59,7 +59,7 @@
     {
       label:'Marketing e design',
       keys:['marketing','dem','amazon','grafica','grafich','design','video','adobe','photoshop','illustrator','canva','seo','newsletter','mailchimp','brevo','e commerce','presentaz','comunicaz'],
-      answer:'Realizzo campagne email, contenuti grafici e video, presentazioni, materiali per l'e-commerce e testi ottimizzati SEO. Nel portfolio figurano Amazon Seller Central e A+ Content, Mailchimp, Brevo, Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva e Figma.'
+      answer:"Realizzo campagne email, contenuti grafici e video, presentazioni, materiali per l'e-commerce e testi ottimizzati SEO. Nel portfolio figurano Amazon Seller Central e A+ Content, Mailchimp, Brevo, Adobe Photoshop, Illustrator, InDesign, Lightroom, Acrobat, Canva e Figma."
     },
     {
       label:'Formazione',
@@ -93,7 +93,7 @@
     if(has(t,[' ciao ',' salve ',' buongiorno ',' buonasera ',' hello ',' hey ']))
       return {answer:'Ciao! Posso raccontarti le mie competenze, le esperienze professionali e il mio percorso formativo. Scegli un argomento o scrivimi una domanda.'};
     if(has(t,[' chi sei ',' cosa sei ',' chatbot ',' sei un ai ',' sei ai ',' sei umano ']))
-      return {answer:'Sono l'assistente virtuale del portfolio di Marco. Rispondo alle domande sul suo profilo utilizzando informazioni preimpostate del sito; non sono Marco e non utilizzo un servizio di AI generativa.'};
+      return {answer:"Sono l'assistente virtuale del portfolio di Marco. Rispondo alle domande sul suo profilo utilizzando informazioni preimpostate del sito; non sono Marco e non utilizzo un servizio di AI generativa."};
     const scores=topics.map(topic=>topic.keys.reduce((n,key)=>n+(t.includes(key)?key.length:0),0));
     const index=scores.indexOf(Math.max(...scores));
     if(scores[index]>0)return topics[index];
