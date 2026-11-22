@@ -169,5 +169,5 @@
 .mm-chat-toggle-icon{background:#47ABBF;border:1px solid #47ABBF;color:#fff}
 .mm-chat-avatar{background:#47ABBF;border-color:#47ABBF}
 .mm-chat-toggle-icon .mm-chat-brandmark,.mm-chat-avatar .mm-chat-brandmark{color:#fff}
-.mm-chat-brandmark{display:block;width:23px;height:23px;flex:none}
-.mm-chat-avatar .mm-chat-brandmark{width:25px;height:25px}
+.mm-chat-brandmark{display:block;width:17px;height:17px;flex:none}
+.mm-chat-avatar .mm-chat-brandmark{width:21px;height:21px}
