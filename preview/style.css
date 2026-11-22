@@ -649,3 +649,44 @@ body.menu-open .site-header{
   }
   .hero-cta-arrow,.simple-experience article{transition:none!important}
 }
+
+/* Premium Motion v2 — clearer, reliably perceptible entrance on every reload. */
+@media (prefers-reduced-motion:no-preference) {
+  .hero.premium-hero-play .hero-main h1{
+    animation:premiumHeroIn 850ms cubic-bezier(.16,1,.3,1) 80ms both;
+  }
+  .hero.premium-hero-play .hero-main>p{
+    animation:premiumHeroIn 850ms cubic-bezier(.16,1,.3,1) 220ms both;
+  }
+  .hero.premium-hero-play .hero-actions{
+    animation:premiumHeroIn 850ms cubic-bezier(.16,1,.3,1) 360ms both;
+  }
+  @keyframes premiumHeroIn{
+    from{opacity:0;transform:translate3d(0,32px,0)}
+    to{opacity:1;transform:translate3d(0,0,0)}
+  }
+  [data-premium-reveal].premium-entering{
+    opacity:0;
+    transform:translate3d(0,30px,0);
+    transition:opacity 820ms cubic-bezier(.16,1,.3,1),transform 820ms cubic-bezier(.16,1,.3,1);
+    transition-delay:var(--premium-delay,0ms);
+  }
+  [data-premium-reveal].premium-entering.premium-visible{
+    opacity:1;transform:translate3d(0,0,0);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .simple-skills article:hover,.simple-tools.tools-expanded .tool-card:hover{
+      transform:translate3d(0,-8px,0);
+      border-color:#47ABBF;
+      box-shadow:0 20px 42px rgba(12,32,38,.17);
+    }
+    .hero-actions .pill:hover,.contact-static .pill:hover{
+      transform:translateY(-4px);
+    }
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero.premium-hero-play .hero-main h1,
+  .hero.premium-hero-play .hero-main>p,
+  .hero.premium-hero-play .hero-actions{animation:none!important}
+}
