@@ -540,3 +540,21 @@ body.menu-open .site-header{
   .site-header .desktop-nav a,.site-header .navbar-linkedin,.site-header .header-cta,
   .site-header .logo-abstract,.mobile-nav a,.site-header .logo-abstract .abstract-symbol path{transition:none}
 }
+
+/* Bilingual IT/EN switch — compact and consistent with existing navbar. */
+.site-header .language-switch{display:inline-flex;align-items:center;flex:none;gap:6px;color:#aab0b6;font:700 12px/1 'Manrope',sans-serif;letter-spacing:.03em;white-space:nowrap}
+.language-switch a,.mobile-language-switch a{padding:8px 4px;transition:color .2s ease;color:#b7bcc1}
+.language-switch a[aria-current="page"],.mobile-language-switch a[aria-current="page"]{color:#47ABBF}
+.language-switch a:hover,.language-switch a:focus-visible,.mobile-language-switch a:hover,.mobile-language-switch a:focus-visible{color:#47ABBF}
+.mobile-language-switch{display:none}
+@media(max-width:980px){
+  .site-header .language-switch{display:none}
+  .mobile-language-switch{display:flex;align-items:center;gap:12px;padding:10px 4px 16px;border-bottom:1px solid #ffffff26;font:700 16px/1.3 'Manrope',sans-serif}
+  .mobile-language-switch a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+}
+@media(min-width:981px) and (max-width:1180px){
+ .site-header{gap:20px}
+ .desktop-nav{gap:15px}
+ .site-header .language-switch{gap:3px}
+}
+@media(prefers-reduced-motion:reduce){.language-switch a,.mobile-language-switch a{transition:none}}
