@@ -575,3 +575,50 @@ body.menu-open .site-header{
 
 /* Preserve the approved two-paragraph contact copy in both languages. */
 .contact-static>.container>p{white-space:pre-line}
+
+/* Persistent and discoverable IT/EN selector in header on every screen size. */
+.site-header .language-switch{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  gap:0;
+  padding:3px;
+  margin:0;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(8,9,10,.85);
+  position:relative;
+  z-index:65;
+}
+.site-header .language-switch>span{color:#909ca3;padding:0 2px;font-size:11px}
+.site-header .language-switch a{
+  display:inline-flex;
+  min-width:34px;
+  min-height:34px;
+  padding:6px 8px;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font:800 12px/1 'Manrope',sans-serif;
+  border-radius:999px;
+  text-decoration:none;
+}
+.site-header .language-switch a[aria-current="page"]{
+  background:#47ABBF;
+  color:#fff;
+}
+.site-header .language-switch a:hover,
+.site-header .language-switch a:focus-visible{color:#47ABBF}
+.site-header .language-switch a[aria-current="page"]:hover,
+.site-header .language-switch a[aria-current="page"]:focus-visible{color:#fff}
+@media(max-width:980px){
+  .site-header .language-switch{display:inline-flex!important;margin-left:auto}
+  .site-header .mobile-menu{margin-left:0}
+  .mobile-nav .mobile-language-switch{display:none!important}
+  .site-header{gap:12px}
+}
+@media(max-width:380px){
+  .site-header .language-switch a{min-width:30px;padding:6px}
+  .site-header .language-switch{padding:2px}
+}
