@@ -622,3 +622,73 @@ body.menu-open .site-header{
   .site-header .language-switch a{min-width:30px;padding:6px}
   .site-header .language-switch{padding:2px}
 }
+
+/* Language control v3: clear affordance, visible active language, reachable on mobile. */
+.site-header .language-switch{
+  display:inline-flex!important;
+  align-items:center;
+  gap:4px;
+  flex-shrink:0;
+  padding:4px 6px 4px 10px;
+  border:1px solid rgba(255,255,255,.52);
+  border-radius:12px;
+  background:#11181c;
+  box-shadow:0 2px 12px rgba(0,0,0,.2);
+  white-space:nowrap;
+}
+.site-header .language-switch .lang-globe{display:block;flex:none;color:#47ABBF}
+.site-header .language-switch::before{
+  content:"LINGUA";display:block;order:0;
+  color:#e5eaed;
+  font:700 10px/1 'Manrope',sans-serif;
+  letter-spacing:.09em;
+  margin-inline:3px 6px;
+}
+html[lang="en"] .site-header .language-switch::before{content:"LANGUAGE"}
+.site-header .language-switch .lang-globe{order:-1}
+.site-header .language-switch>span{display:none}
+.site-header .language-switch a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  min-width:42px;
+  height:40px;
+  min-height:40px;
+  padding:0 10px;
+  border-radius:8px;
+  color:#e4e8ea;
+  background:rgba(255,255,255,.06);
+  font:800 13px/1 'Manrope',sans-serif;
+  letter-spacing:.04em;
+  transition:background-color .16s ease,color .16s ease;
+}
+.site-header .language-switch a[aria-current="page"]{
+  color:#071014;
+  background:#47ABBF;
+  box-shadow:inset 0 0 0 1px #47ABBF;
+}
+.site-header .language-switch a:hover,
+.site-header .language-switch a:focus-visible{
+  color:#fff;
+  background:#267f93;
+  outline-offset:2px;
+}
+.site-header .language-switch a[aria-current="page"]:hover,
+.site-header .language-switch a[aria-current="page"]:focus-visible{
+  color:#071014;
+  background:#65c4d6;
+}
+@media(max-width:980px){
+  .site-header .language-switch{margin-left:auto!important}
+  .site-header .language-switch::before{display:none}
+  .site-header .mobile-menu{margin-left:0}
+}
+@media(max-width:400px){
+  .site-header .language-switch{padding:3px 4px 3px 7px;gap:3px}
+  .site-header .language-switch a{min-width:35px;height:36px;min-height:36px;padding:0 7px;font-size:12px}
+  .site-header .language-switch .lang-globe{width:17px;height:17px}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-header .language-switch a{transition:none}
+}
