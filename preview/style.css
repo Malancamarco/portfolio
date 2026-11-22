@@ -508,7 +508,7 @@ body.menu-open .site-header{
 .pill-red,.contact-static .pill-red{color:#fff}
 
 /* White identity mark faithfully vectorized from the supplied image. */
-.site-header .logo-abstract .abstract-symbol{width:36px;height:48px;max-height:48px;flex:none}
+.site-header .logo-abstract .abstract-symbol{width:34px;height:45px;max-height:45px;flex:none}
 @media(max-width:980px){.site-header .logo-abstract .abstract-symbol{width:33px;height:43px;max-height:43px}}
 @media(max-width:400px){.site-header .logo-abstract .abstract-symbol{width:29px;height:38px;max-height:38px}}
 
