@@ -515,3 +515,6 @@ body.menu-open .site-header{
 /* Consistent Ocean Blue accent and white button text. */
 .pill-red,.contact-static .pill-red{background:#47ABBF;color:#fff}
 .tool-card-index,.simple-tools.tools-expanded .tool-card .tool-card-index{color:#31899A}
+
+/* Footer accent requested for the opportunities headline. */
+.contact-static h2 em{color:#47ABBF}
