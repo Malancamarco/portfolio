@@ -5,13 +5,13 @@ const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const menuBtn=$('#menuBtn');
 const mobileNav=$('#mobileNav');
 const mobileBreakpoint=window.matchMedia('(max-width: 980px)');
-const englishPage=new URLSearchParams(location.search).get('lang')==='en';
+
 function setMenu(open,{restoreFocus=false}={}){
   if(!menuBtn||!mobileNav)return;
   const shouldOpen=!!open&&mobileBreakpoint.matches;
   mobileNav.classList.toggle('open',shouldOpen);
   menuBtn.setAttribute('aria-expanded',String(shouldOpen));
-  menuBtn.setAttribute('aria-label',shouldOpen?(englishPage?'Close menu':'Chiudi menu'):(englishPage?'Open menu':'Apri menu'));
+  menuBtn.setAttribute('aria-label',shouldOpen?'Chiudi menu':'Apri menu');
   document.body.classList.toggle('menu-open',shouldOpen);
   if(!shouldOpen&&restoreFocus){
     menuBtn.focus({preventScroll:true});
