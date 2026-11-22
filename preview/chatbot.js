@@ -131,11 +131,14 @@
     if(!open&&root.contains(document.activeElement))document.activeElement.blur();
     panel.hidden=!open;
     root.classList.toggle('chat-open',open);
+    panel.setAttribute('aria-modal',String(open));
     toggle.setAttribute('aria-expanded',String(open));
     toggle.setAttribute('aria-label',open?'Chiudi assistente di Marco':'Apri assistente di Marco');
     if(open){
       syncVisualViewport();
-      if(!mobileChat.matches)input.focus({preventScroll:true});
+      // Focusing the close control avoids opening the keyboard on phones.
+      if(mobileChat.matches)close.focus({preventScroll:true});
+      else input.focus({preventScroll:true});
     }else{
       root.style.removeProperty('--mm-chat-viewport-height');
       root.style.removeProperty('--mm-chat-viewport-top');
@@ -145,7 +148,24 @@
   toggle.addEventListener('click',()=>setOpen(panel.hidden));
   close.addEventListener('click',()=>setOpen(false));
   document.addEventListener('keydown',event=>{
-    if(event.key==='Escape'&&!panel.hidden)setOpen(false);
+    if(panel.hidden)return;
+    if(event.key==='Escape'){
+      event.preventDefault();
+      setOpen(false);
+      return;
+    }
+    if(event.key==='Tab'){
+      const controls=Array.from(panel.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href]'));
+      const first=controls[0],last=controls[controls.length-1];
+      if(!first)return;
+      if(event.shiftKey&&(document.activeElement===first||!panel.contains(document.activeElement))){
+        event.preventDefault();
+        last.focus({preventScroll:true});
+      }else if(!event.shiftKey&&(document.activeElement===last||!panel.contains(document.activeElement))){
+        event.preventDefault();
+        first.focus({preventScroll:true});
+      }
+    }
   });
   form.addEventListener('submit',event=>{
     event.preventDefault();
