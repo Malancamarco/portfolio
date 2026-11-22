@@ -690,3 +690,23 @@ body.menu-open .site-header{
   .hero.premium-hero-play .hero-main>p,
   .hero.premium-hero-play .hero-actions{animation:none!important}
 }
+
+/* Premium Motion v3. Native CSS entrance, independent of any JS initialization. */
+@media (prefers-reduced-motion:no-preference) {
+  .hero .hero-main h1{animation:premiumHeroIn 950ms cubic-bezier(.16,1,.3,1) 90ms backwards}
+  .hero .hero-main>p{animation:premiumHeroIn 950ms cubic-bezier(.16,1,.3,1) 260ms backwards}
+  .hero .hero-actions{animation:premiumHeroIn 950ms cubic-bezier(.16,1,.3,1) 430ms backwards}
+  @keyframes premiumViewEnter {
+    from{opacity:.08;transform:translate3d(0,34px,0)}
+    to{opacity:1;transform:translate3d(0,0,0)}
+  }
+  main .premium-in-view{
+    animation:premiumViewEnter 870ms cubic-bezier(.16,1,.3,1) backwards;
+  }
+  /* No invisible default state: unobstructed content for no-JS users. */
+  main [data-premium-reveal]:not(.premium-entering){opacity:1}
+}
+@media (prefers-reduced-motion:reduce) {
+  .hero .hero-main h1,.hero .hero-main>p,.hero .hero-actions,
+  main .premium-in-view{animation:none!important;opacity:1!important;transform:none!important}
+}
