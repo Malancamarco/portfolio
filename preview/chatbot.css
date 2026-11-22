@@ -164,3 +164,8 @@
 
 /* White labels on #47ABBF assistant actions. */
 .mm-chat-send,.mm-chat-bubble--user,.mm-chat-toggle-badge{color:#fff}
+
+/* Portfolio white SVG replaces the MM initials in launcher and header. */
+.mm-chat-toggle-icon{background:#24272B;border:1px solid rgba(255,255,255,.2)}
+.mm-chat-brandmark{display:block;width:15px;height:20px;flex:none}
+.mm-chat-avatar .mm-chat-brandmark{width:19px;height:26px}
