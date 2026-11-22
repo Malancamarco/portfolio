@@ -5,7 +5,7 @@ const year=$('#year');if(year)year.textContent=new Date().getFullYear();
 const menuBtn=$('#menuBtn');
 const mobileNav=$('#mobileNav');
 const mobileBreakpoint=window.matchMedia('(max-width: 980px)');
-const englishPage=document.documentElement.lang==='en';
+const englishPage=new URLSearchParams(location.search).get('lang')==='en';
 function setMenu(open,{restoreFocus=false}={}){
   if(!menuBtn||!mobileNav)return;
   const shouldOpen=!!open&&mobileBreakpoint.matches;
