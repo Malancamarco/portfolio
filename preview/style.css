@@ -506,3 +506,8 @@ body.menu-open .site-header{
 
 /* Ice Cyan accent: keep dark text legible on bright primary buttons. */
 .pill-red,.contact-static .pill-red{color:#071317}
+
+/* White identity mark faithfully vectorized from the supplied image. */
+.site-header .logo-abstract .abstract-symbol{width:40px;height:53px;max-height:53px;flex:none}
+@media(max-width:980px){.site-header .logo-abstract .abstract-symbol{width:36px;height:47px;max-height:47px}}
+@media(max-width:400px){.site-header .logo-abstract .abstract-symbol{width:32px;height:42px;max-height:42px}}
