@@ -46,18 +46,90 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 document.querySelector('#header')?.classList.toggle('is-scrolled',window.scrollY>20);
 
-const video=$('.hero-video');
-if(video){
-  video.muted=true;
-  video.defaultMuted=true;
-  video.autoplay=true;
-  video.loop=true;
-  video.playsInline=true;
-  const startVideo=()=>{if(!document.hidden)video.play().catch(()=>{});};
-  if(video.readyState===0)video.load();
-  startVideo();
-  video.addEventListener('loadeddata',startVideo,{once:true});
-  video.addEventListener('canplay',startVideo,{once:true});
-  window.addEventListener('pageshow',startVideo);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();else startVideo()});
+// Cinematic hero playlist: a pair of layers keeps the last frame visible
+// while the next clip buffers, then crossfades without a blank background.
+const heroVideos=Array.from(document.querySelectorAll('.hero-video-stack .hero-video'));
+if(heroVideos.length===2){
+  const clips=[
+    {url:'01-infrastructure.mp4',poster:'01-infrastructure.jpg'},
+    {url:'02-intelligence.mp4',poster:'02-intelligence.jpg'},
+    {url:'03-systems.mp4',poster:'03-systems.jpg'}
+  ];
+  const assetRoot=new URL('assets/',document.currentScript?.src||document.baseURI);
+  let active=0;
+  let clipIndex=0;
+  let transitioning=false;
+  let firstPlay=true;
+  const activeVideo=()=>heroVideos[active];
+  const standbyVideo=()=>heroVideos[1-active];
+  function setSource(video,index){
+    const clip=clips[index];
+    const url=new URL(clip.url,assetRoot).href;
+    const source=video.querySelector('source');
+    if(source?.src===url)return;
+    if(source)source.src=url;
+    video.poster=new URL(clip.poster,assetRoot).href;
+    video.load();
+  }
+  function playActive(){
+    const video=activeVideo();
+    if(document.hidden)return;
+    video.muted=true;
+    video.defaultMuted=true;
+    video.playsInline=true;
+    video.play().catch(()=>{});
+  }
+  function rotateClip(){
+    if(transitioning)return;
+    const current=activeVideo();
+    const next=standbyVideo();
+    const nextIndex=(clipIndex+1)%clips.length;
+    transitioning=true;
+    setSource(next,nextIndex);
+    const reveal=()=>{
+      if(!transitioning)return;
+      next.muted=true;
+      next.playsInline=true;
+      const p=next.play();
+      if(p&&typeof p.then==='function'){
+        p.then(()=>finish()).catch(()=>{
+          // Keep the existing frame while the next video becomes available.
+          transitioning=false;
+          next.addEventListener('canplay',rotateClip,{once:true});
+        });
+      }else finish();
+    };
+    function finish(){
+      if(!transitioning)return;
+      next.classList.add('is-active');
+      current.classList.remove('is-active');
+      const previous=current;
+      clipIndex=nextIndex;
+      active=1-active;
+      window.setTimeout(()=>{
+        previous.pause();
+        previous.currentTime=0;
+        const upcoming=(clipIndex+1)%clips.length;
+        setSource(previous,upcoming);
+        transitioning=false;
+      },850);
+    }
+    if(next.readyState>=2)reveal();
+    else next.addEventListener('canplay',reveal,{once:true});
+  }
+  heroVideos.forEach(v=>{
+    v.muted=true;
+    v.defaultMuted=true;
+    v.playsInline=true;
+    v.addEventListener('ended',()=>{if(v===activeVideo())rotateClip();});
+  });
+  // Do not depend on metadata events alone for autoplay in Safari.
+  playActive();
+  activeVideo().addEventListener('canplay',playActive,{once:true});
+  if(firstPlay){firstPlay=false;setSource(standbyVideo(),1);}
+  window.addEventListener('pageshow',playActive);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden)heroVideos.forEach(v=>v.pause());
+    else playActive();
+  });
 }
