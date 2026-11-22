@@ -8,7 +8,7 @@
     <section class="mm-chat-panel" id="mm-chat-panel" role="dialog" aria-label="Assistente del portfolio di Marco Malanca" hidden>
       <div class="mm-chat-top">
         <div class="mm-chat-brand">
-          <span class="mm-chat-avatar" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133 100" aria-hidden="true" focusable="false"><path fill="#FFFFFF" d="M0 100V0l66 50L133 0v17L66 67 13 26v74Z"/><path fill="#FFFFFF" d="M27 54l39 29 67-50v67h-13V59l-54 41-39-30Z"/></svg></span>
+          <span class="mm-chat-avatar" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2M8 15h.01M16 15h.01M9 19h6"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span>
           <div class="mm-chat-headline"><strong>Assistente di Marco</strong><span>Informazioni sul profilo professionale</span></div>
         </div>
         <button class="mm-chat-close" type="button" aria-label="Chiudi assistente">×</button>
@@ -22,7 +22,7 @@
       <p class="mm-chat-disclaimer">Risposte preimpostate, basate sul portfolio. Nessuna AI esterna o invio di dati.</p>
     </section>
     <button class="mm-chat-toggle" type="button" aria-expanded="false" aria-controls="mm-chat-panel" aria-label="Apri assistente di Marco">
-      <span class="mm-chat-toggle-icon" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133 100" aria-hidden="true" focusable="false"><path fill="#FFFFFF" d="M0 100V0l66 50L133 0v17L66 67 13 26v74Z"/><path fill="#FFFFFF" d="M27 54l39 29 67-50v67h-13V59l-54 41-39-30Z"/></svg></span><span class="mm-chat-toggle-label">Hai una domanda?</span>
+      <span class="mm-chat-toggle-icon" aria-hidden="true"><svg class="mm-chat-brandmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M12 8V4H9m3 0h3M3 13H1m22 0h-2M8 15h.01M16 15h.01M9 19h6"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></span><span class="mm-chat-toggle-label">Hai una domanda?</span>
     </button>`;
   document.body.appendChild(root);
   const toggle = root.querySelector('.mm-chat-toggle');
