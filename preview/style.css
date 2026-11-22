@@ -558,3 +558,17 @@ body.menu-open .site-header{
  .site-header .language-switch{gap:3px}
 }
 @media(prefers-reduced-motion:reduce){.language-switch a,.mobile-language-switch a{transition:none}}
+
+/* Keep language switch legible inside the stacked mobile menu. */
+@media(max-width:980px){
+ .mobile-nav .mobile-language-switch a{
+   border:0;
+   width:44px;
+   min-width:44px;
+   padding:8px;
+   justify-content:center;
+   font-size:14px;
+   font-weight:800;
+ }
+ .mobile-nav .mobile-language-switch a[aria-current="page"]{color:#47ABBF}
+}
