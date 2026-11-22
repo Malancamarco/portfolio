@@ -46,33 +46,18 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 document.querySelector('#header')?.classList.toggle('is-scrolled',window.scrollY>20);
 
-// Keep poster visible on reduced-motion or data-saving devices.
-// Only fetch the hero video when motion is allowed.
 const video=$('.hero-video');
 if(video){
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-  const saveData=Boolean(navigator.connection?.saveData);
-  const canAnimate=()=>!reduceMotion.matches&&!saveData;
-  const source=video.querySelector('source[data-src]');
-  let loaded=false;
-  const startVideo=()=>{
-    if(!canAnimate()||document.hidden){
-      video.pause();
-      return;
-    }
-    if(!loaded&&source){
-      source.src=source.dataset.src;
-      loaded=true;
-      video.load();
-    }
-    if(loaded)video.play().catch(()=>{});
-  };
   video.muted=true;
   video.defaultMuted=true;
+  video.autoplay=true;
   video.loop=true;
   video.playsInline=true;
+  const startVideo=()=>{if(!document.hidden)video.play().catch(()=>{});};
+  if(video.readyState===0)video.load();
   startVideo();
+  video.addEventListener('loadeddata',startVideo,{once:true});
+  video.addEventListener('canplay',startVideo,{once:true});
   window.addEventListener('pageshow',startVideo);
-  document.addEventListener('visibilitychange',startVideo);
-  reduceMotion.addEventListener('change',startVideo);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();else startVideo()});
 }
