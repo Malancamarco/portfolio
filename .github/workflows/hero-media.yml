@@ -22,7 +22,7 @@ jobs:
       - name: Verify optimized media
         run: |
           set -e
-          for id in 04-red-waves 05-processor 06-digital-wave; do
+          for id in 07-chrome-motion; do
             test -s "preview/assets/${id}.mp4"
             test -s "preview/assets/${id}.jpg"
             ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 "preview/assets/${id}.mp4"
@@ -31,9 +31,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add preview/assets/04-red-waves.mp4 preview/assets/04-red-waves.jpg preview/assets/05-processor.mp4 preview/assets/05-processor.jpg preview/assets/06-digital-wave.mp4 preview/assets/06-digital-wave.jpg
+          git add preview/assets/07-chrome-motion.mp4 preview/assets/07-chrome-motion.jpg
           if ! git diff --cached --quiet; then
-            git commit -m 'Add optimized selected cinematic backgrounds'
+            git commit -m 'Add optimized Chrome Motion hero video'
             git fetch origin main
             git rebase origin/main
             git push origin HEAD:main
