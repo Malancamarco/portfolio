@@ -616,3 +616,12 @@ body.menu-open .site-header{
   .site-header .desktop-nav a,.mobile-nav>a,.navbar-linkedin,
   .simple-footer .linkedin-link,.simple-footer .footer-email{transition:none!important}
 }
+
+/* Mobile hero: bring the title closer to the fixed header. */
+@media(max-width:760px){
+  .hero-inner{padding-top:88px}
+  .hero-main{margin:clamp(24px,4svh,42px) 0 auto}
+}
+@media(max-width:760px) and (max-height:670px){
+  .hero-main{margin:22px 0 auto}
+}
