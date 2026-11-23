@@ -171,3 +171,24 @@
 .mm-chat-toggle-icon .mm-chat-brandmark,.mm-chat-avatar .mm-chat-brandmark{color:#fff}
 .mm-chat-brandmark{display:block;width:17px;height:17px;flex:none}
 .mm-chat-avatar .mm-chat-brandmark{width:21px;height:21px}
+
+/* Responsive chat safeguards: compact devices, landscape and dynamic keyboards. */
+.mm-chat-panel,.mm-chat-top,.mm-chat-brand,.mm-chat-headline,.mm-chat-form{min-width:0}
+.mm-chat-headline strong,.mm-chat-headline span{overflow-wrap:break-word}
+.mm-chat-form .mm-chat-input{min-width:0;width:100%}
+@media(max-width:380px){
+  .mm-chat-top{padding-inline:12px;gap:8px}
+  .mm-chat-brand{gap:8px}
+  .mm-chat-headline strong{font-size:13px}
+  .mm-chat-headline span{font-size:10px}
+  .mm-chat-avatar{width:34px;height:34px}
+  .mm-chat-close{width:40px;height:40px}
+  .mm-chat-form{padding-inline:10px}
+  .mm-chat-messages{padding-inline:12px}
+}
+@media(max-height:480px) and (min-width:601px){
+  .mm-chat-panel{max-height:calc(100dvh - 30px);min-height:0;bottom:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .mm-chat-chip,.mm-chat-send,.mm-chat-toggle{transition:none!important}
+}
