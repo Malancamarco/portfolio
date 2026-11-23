@@ -23,7 +23,8 @@ jobs:
           node-version: '22'
       - name: Install Playwright
         run: |
-          npm install --no-save playwright@1.56.1
+          npm init -y
+          npm install --no-save playwright@1.56.0
           npx playwright install --with-deps chromium
       - name: Start local site and test
         run: |
