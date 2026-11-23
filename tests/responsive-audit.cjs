@@ -29,14 +29,15 @@ const widths = [
     await page.waitForTimeout(800);
     const state=await page.evaluate(()=>{
       const rect=(sel)=>{const node=document.querySelector(sel);if(!node)return null;const r=node.getBoundingClientRect();return {x:r.x,y:r.y,left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height,visible:r.width>0&&r.height>0}};
-      const header=rect('.site-header'),logo=rect('.logo-abstract'),links=rect('.desktop-nav'),linkedin=rect('.navbar-linkedin'),cta=rect('.header-cta'),menu=rect('.mobile-menu'),hero=rect('.hero-main'),title=rect('.hero h1');
+      const header=rect('.site-header'),content=rect('#expertise .container'),heroInner=rect('.hero-inner'),headerPadding=parseFloat(getComputedStyle(document.querySelector('.site-header')).paddingLeft),logo=rect('.logo-abstract'),links=rect('.desktop-nav'),linkedin=rect('.navbar-linkedin'),cta=rect('.header-cta'),menu=rect('.mobile-menu'),hero=rect('.hero-main'),title=rect('.hero h1');
       const visibleHeader=[logo,links,linkedin,cta,menu].filter(r=>r&&r.visible);
       const overlap=visibleHeader.some((r,i)=>visibleHeader.slice(i+1).some(other=>r.right>other.left+2 && other.right>r.left+2 && r.bottom>other.top+2 && other.bottom>r.top+2));
-      return {innerWidth:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,header,logo,links,linkedin,cta,menu,hero,title,overlap,chat:!!document.querySelector('.mm-chat-toggle'),images:[...document.querySelectorAll('img')].filter(el=>!el.complete).length};
+      return {innerWidth:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,header,headerPadding,content,heroInner,logo,links,linkedin,cta,menu,hero,title,overlap,chat:!!document.querySelector('.mm-chat-toggle'),images:[...document.querySelectorAll('img')].filter(el=>!el.complete).length};
     });
     const failed=[];
     if(state.scrollWidth>state.innerWidth+2)failed.push('horizontal overflow '+(state.scrollWidth-state.innerWidth)+'px');
     if(state.overlap)failed.push('header controls overlap');
+    if(device.width>=1600 && (Math.abs(state.headerPadding-state.content.left)>2 || Math.abs(state.heroInner.left-state.content.left)>2)) failed.push('header / hero not aligned to content container');
     if(state.title?.left < -1||state.title?.right > device.width+1)failed.push('hero title outside screen');
     if(!state.chat)failed.push('chat button missing');
     if(errors.length)failed.push('JS exceptions: '+errors.slice(0,2).join('; '));
