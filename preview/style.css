@@ -767,17 +767,19 @@ html,body{max-width:100%;overflow-x:clip}
   .hero-main>p{font-size:clamp(18px,.95vw,21px)}
 }
 
-/* Shared content alignment on large displays: header and hero use the same
-   1480px centered grid as the sections below. */
-@media(min-width:1600px){
+/* Align the navigation and hero with the page sections. */
+@media(min-width:761px){
+  :root{--content-max-width:1480px;--content-gutter:56px}
+  .container,.hero-inner{
+    width:min(var(--content-max-width),calc(100% - 2 * var(--content-gutter)));
+    max-width:var(--content-max-width);
+  }
   .site-header{
-    padding-left:max(56px,calc((100% - 1480px)/2));
-    padding-right:max(56px,calc((100% - 1480px)/2));
+    padding-inline:max(var(--content-gutter),calc((100% - var(--content-max-width))/2));
   }
-  .hero-inner{
-    width:min(1480px,calc(100% - 112px));
-    max-width:1480px;
-  }
+}
+@media(min-width:761px) and (max-width:1050px){
+  :root{--content-gutter:32px}
 }
 
 /* Fix short, wide desktop viewports: scale the Hero by available height, not width alone.
