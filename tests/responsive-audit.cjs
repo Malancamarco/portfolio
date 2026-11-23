@@ -17,7 +17,7 @@ const widths = [
   {name:'ultrawide-3440',width:3440,height:1440,deviceScaleFactor:1}
 ];
 (async()=>{
-  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+  const browser=await chromium.launch({headless:true,args:['--no-sandbox'],...(process.env.CHROME_BIN?{executablePath:process.env.CHROME_BIN}:{})});
   let problems=[];
   fs.mkdirSync('responsive-screenshots',{recursive:true});
   for(const device of widths){
