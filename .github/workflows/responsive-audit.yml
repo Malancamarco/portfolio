@@ -31,8 +31,15 @@ jobs:
         run: npm init -y
       - name: Install Playwright package
         run: npm install --no-save playwright@1.56.0
-      - name: Install Chromium
-        run: npx playwright install chromium
+      - name: Find system Chrome
+        run: |
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$CHROME_BIN" ]; then
+            echo "No installed Chrome executable"
+            exit 1
+          fi
+          echo "CHROME_BIN=$CHROME_BIN" >> "$GITHUB_ENV"
+          "$CHROME_BIN" --version
       - name: Start local site and test
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/portfolio-http.log 2>&1 &
