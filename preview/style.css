@@ -625,3 +625,24 @@ body.menu-open .site-header{
 @media(max-width:760px) and (max-height:670px){
   .hero-main{margin:22px 0 auto}
 }
+
+/* Wide desktop: distribute header elements across the monitor rather than
+   confining them to the centered content column. Leave hero alignment intact. */
+@media(min-width:1600px){
+  .site-header{
+    padding-inline:clamp(44px,4vw,96px);
+    gap:32px;
+  }
+  .site-header .desktop-nav{
+    gap:clamp(24px,2vw,36px);
+    margin-left:auto;
+  }
+  .site-header .desktop-nav a{
+    font-size:14px;
+    line-height:1.4;
+  }
+  .site-header .header-cta{
+    font-size:13px;
+    min-height:44px;
+  }
+}
