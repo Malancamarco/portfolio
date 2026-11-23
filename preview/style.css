@@ -766,3 +766,16 @@ html,body{max-width:100%;overflow-x:clip}
   .hero h1{font-size:clamp(104px,6.1vw,140px)}
   .hero-main>p{font-size:clamp(18px,.95vw,21px)}
 }
+
+/* Shared content alignment on large displays: header and hero use the same
+   1480px centered grid as the sections below. */
+@media(min-width:1600px){
+  .site-header{
+    padding-left:max(56px,calc((100% - 1480px)/2));
+    padding-right:max(56px,calc((100% - 1480px)/2));
+  }
+  .hero-inner{
+    width:min(1480px,calc(100% - 112px));
+    max-width:1480px;
+  }
+}
