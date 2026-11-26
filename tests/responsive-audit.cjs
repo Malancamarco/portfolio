@@ -32,13 +32,15 @@ const widths = [
       const header=rect('.site-header'),content=rect('#expertise .container'),heroInner=rect('.hero-inner'),headerPadding=parseFloat(getComputedStyle(document.querySelector('.site-header')).paddingLeft),logo=rect('.logo-abstract'),links=rect('.desktop-nav'),linkedin=rect('.navbar-linkedin'),cta=rect('.header-cta'),menu=rect('.mobile-menu'),hero=rect('.hero-main'),title=rect('.hero h1');
       const visibleHeader=[logo,links,linkedin,cta,menu].filter(r=>r&&r.visible);
       const overlap=visibleHeader.some((r,i)=>visibleHeader.slice(i+1).some(other=>r.right>other.left+2 && other.right>r.left+2 && r.bottom>other.top+2 && other.bottom>r.top+2));
-      return {innerWidth:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,header,headerPadding,content,heroInner,logo,links,linkedin,cta,menu,hero,title,overlap,chat:!!document.querySelector('.mm-chat-toggle'),images:[...document.querySelectorAll('img')].filter(el=>!el.complete).length};
+      return {heroSection:rect('#home'),innerWidth:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,header,headerPadding,content,heroInner,logo,links,linkedin,cta,menu,hero,title,overlap,chat:!!document.querySelector('.mm-chat-toggle'),images:[...document.querySelectorAll('img')].filter(el=>!el.complete).length};
     });
     const failed=[];
     if(state.scrollWidth>state.innerWidth+2)failed.push('horizontal overflow '+(state.scrollWidth-state.innerWidth)+'px');
     if(state.overlap)failed.push('header controls overlap');
     if(device.width>=1600 && (Math.abs(state.headerPadding-state.content.left)>2 || Math.abs(state.heroInner.left-state.content.left)>2)) failed.push('header / hero not aligned to content container');
     if(state.title?.left < -1||state.title?.right > device.width+1)failed.push('hero title outside screen');
+    if(device.width<=760 && state.title.top < state.header.bottom) failed.push('hero title overlaps mobile header');
+    if(device.width<=760 && state.heroSection.bottom-state.hero.bottom > 60) failed.push('excess space below mobile hero CTA');
     if(!state.chat)failed.push('chat button missing');
     if(errors.length)failed.push('JS exceptions: '+errors.slice(0,2).join('; '));
     try {
